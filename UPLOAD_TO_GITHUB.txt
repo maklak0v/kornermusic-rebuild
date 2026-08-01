@@ -1,0 +1,11 @@
+UPLOAD TO GITHUB (browser)
+
+1. Open the empty kornermusic-rebuild repository.
+2. Choose Add file -> Upload files.
+3. Open this extracted folder and drag ALL items inside it into GitHub.
+   Do not drag the outer folder itself.
+4. Commit message: Upload clean working project
+5. Import maklak0v/kornermusic-rebuild into Bolt as a NEW project.
+
+This package excludes dist and node_modules, contains fewer than 100 files,
+and contains no file larger than 25 MB.
