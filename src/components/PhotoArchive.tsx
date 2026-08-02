@@ -87,33 +87,34 @@ export function PhotoArchive() {
           onLeave={onPhotoLeave}
           reduced={reduced}
         />
+        {/* Row 3: full-width landscape */}
         <PhotoTile
           photo={photos[5]}
-          className="col-span-12 sm:col-span-4 mt-8"
-          aspect="aspect-[3/4]"
+          className="col-span-12 mt-8"
+          aspect="aspect-[21/9]"
           onClick={() => openLightbox(5)}
           onEnter={onPhotoEnter}
           onLeave={onPhotoLeave}
           reduced={reduced}
         />
 
-        {/* Row 3: full-width landscape */}
+        {/* Row 4: frame_007 portrait (left anchor) + three new frames to the right */}
+
+        {/* frame_007 — tall portrait, left anchor */}
         <PhotoTile
           photo={photos[6]}
-          className="col-span-12 mt-8"
-          aspect="aspect-[21/9]"
+          className="col-span-12 sm:col-span-4 mt-4"
+          aspect="aspect-[3/4]"
           onClick={() => openLightbox(6)}
           onEnter={onPhotoEnter}
           onLeave={onPhotoLeave}
           reduced={reduced}
         />
 
-        {/* Row 4: frame_008 portrait (left anchor) + three new frames to the right */}
-
-        {/* frame_008 — tall portrait, left anchor */}
+        {/* frame_008 — winter silhouette portrait, flush top */}
         <PhotoTile
           photo={photos[7]}
-          className="col-span-12 sm:col-span-4 mt-4"
+          className="col-span-6 sm:col-span-3 mt-4"
           aspect="aspect-[3/4]"
           onClick={() => openLightbox(7)}
           onEnter={onPhotoEnter}
@@ -121,10 +122,10 @@ export function PhotoArchive() {
           reduced={reduced}
         />
 
-        {/* frame_009 — winter silhouette portrait, flush top */}
+        {/* frame_009 — ink study portrait, dropped down */}
         <PhotoTile
           photo={photos[8]}
-          className="col-span-6 sm:col-span-3 mt-4"
+          className="col-span-6 sm:col-span-2 mt-4 sm:mt-20"
           aspect="aspect-[3/4]"
           onClick={() => openLightbox(8)}
           onEnter={onPhotoEnter}
@@ -132,10 +133,10 @@ export function PhotoArchive() {
           reduced={reduced}
         />
 
-        {/* frame_010 — ink study portrait, dropped down */}
+        {/* frame_010 — greenhouse portrait, flush top, wider */}
         <PhotoTile
           photo={photos[9]}
-          className="col-span-6 sm:col-span-2 mt-4 sm:mt-20"
+          className="col-span-12 sm:col-span-3 mt-4"
           aspect="aspect-[3/4]"
           onClick={() => openLightbox(9)}
           onEnter={onPhotoEnter}
@@ -143,23 +144,12 @@ export function PhotoArchive() {
           reduced={reduced}
         />
 
-        {/* frame_011 — greenhouse portrait, flush top, wider */}
+        {/* Row 5: frame_011 — full-width cinematic finale */}
         <PhotoTile
           photo={photos[10]}
-          className="col-span-12 sm:col-span-3 mt-4"
-          aspect="aspect-[3/4]"
-          onClick={() => openLightbox(10)}
-          onEnter={onPhotoEnter}
-          onLeave={onPhotoLeave}
-          reduced={reduced}
-        />
-
-        {/* Row 5: frame_012 — full-width cinematic finale */}
-        <PhotoTile
-          photo={photos[11]}
           className="col-span-12 mt-16"
           aspect="aspect-[21/9]"
-          onClick={() => openLightbox(11)}
+          onClick={() => openLightbox(10)}
           onEnter={onPhotoEnter}
           onLeave={onPhotoLeave}
           reduced={reduced}
