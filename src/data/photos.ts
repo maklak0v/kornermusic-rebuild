@@ -7,6 +7,7 @@ export interface Photo {
   photographer: string;
   caption: string;
   orientation: 'portrait' | 'landscape';
+  rotate90?: boolean;
   featured: boolean;
   downloadable: boolean;
   downloadFilename: string;
@@ -121,6 +122,7 @@ export const photos: Photo[] = [
     photographer: 'shot by KORNER',
     caption: 'this is my tattoo',
     orientation: 'portrait',
+    rotate90: true,
     featured: false,
     downloadable: false,
     downloadFilename: 'KORNER_FRAME_008.jpg',
@@ -149,6 +151,7 @@ export const photos: Photo[] = [
     photographer: 'shot by KORNER',
     caption: 'abandoned greenhouse · reclaimed by forest',
     orientation: 'portrait',
+    rotate90: true,
     featured: false,
     downloadable: false,
     downloadFilename: 'KORNER_FRAME_010.jpg',

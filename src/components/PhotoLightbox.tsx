@@ -61,7 +61,7 @@ export function PhotoLightbox({ photo, onClose, onPrev, onNext }: PhotoLightboxP
               <img
                 src={photo.src}
                 alt={photo.caption}
-                className={`max-h-[75vh] w-auto object-contain ${photo.orientation === 'portrait' ? 'max-w-[85vw]' : 'max-w-[90vw]'}`}
+                className={`max-h-[75vh] w-auto object-contain ${photo.rotate90 ? 'rotate-90 scale-[1.34]' : ''} ${photo.orientation === 'portrait' ? 'max-w-[85vw]' : 'max-w-[90vw]'}`}
               />
             </div>
 

@@ -114,11 +114,12 @@ export function PhotoArchive() {
           reduced={reduced}
         />
 
-        {/* frame_008 — medium vertical, flush top beside the anchor */}
+        {/* frame_008 — medium landscape (rotated 90°), flush top beside the anchor */}
         <PhotoTile
           photo={photos[7]}
           className="col-span-6 md:col-span-3 sm:col-span-6 mt-6 md:mt-6"
-          aspect="aspect-[3/4]"
+          aspect="aspect-[4/3]"
+          rotate90
           onClick={() => openLightbox(7)}
           onEnter={onPhotoEnter}
           onLeave={onPhotoLeave}
@@ -136,11 +137,12 @@ export function PhotoArchive() {
           reduced={reduced}
         />
 
-        {/* frame_010 — slightly wider than 009, flush top */}
+        {/* frame_010 — slightly wider than 009 (rotated 90°), flush top */}
         <PhotoTile
           photo={photos[9]}
-          className="col-span-12 md:col-span-2 sm:col-span-12 mt-6 md:mt-6"
-          aspect="aspect-[3/4]"
+          className="col-span-12 md:col-span-3 sm:col-span-12 mt-6 md:mt-6"
+          aspect="aspect-[4/3]"
+          rotate90
           onClick={() => openLightbox(9)}
           onEnter={onPhotoEnter}
           onLeave={onPhotoLeave}
@@ -178,9 +180,10 @@ interface PhotoTileProps {
   onLeave: () => void;
   reduced: boolean;
   offset?: number;
+  rotate90?: boolean;
 }
 
-function PhotoTile({ photo, className, aspect, onClick, onEnter, onLeave, reduced, offset = 0 }: PhotoTileProps) {
+function PhotoTile({ photo, className, aspect, onClick, onEnter, onLeave, reduced, offset = 0, rotate90 = false }: PhotoTileProps) {
   const ref = useRef<HTMLButtonElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -207,7 +210,7 @@ function PhotoTile({ photo, className, aspect, onClick, onEnter, onLeave, reduce
           src={photo.src}
           alt={photo.caption}
           loading="lazy"
-          className="h-full w-full object-cover grayscale-[20%] transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
+          className={`h-full w-full object-cover grayscale-[20%] transition-all duration-700 group-hover:grayscale-0 ${rotate90 ? 'rotate-90 scale-[1.34] group-hover:scale-[1.4]' : 'group-hover:scale-105'}`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent opacity-70 transition-opacity group-hover:opacity-90" />
 
