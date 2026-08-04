@@ -30,7 +30,7 @@ export const videos: VideoItem[] = [
     beta: 'beta_0.03',
     category: 'PROCESS',
     date: '2025.12.05',
-    duration: '06:18',
+    duration: '59:22',
     description: 'dedicated to my best friend, who is more than 5,000 miles away from me. 18 years of friendship. different places, different lives, but the same connection.',
     thumbnail: '/images/image.png',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1',
