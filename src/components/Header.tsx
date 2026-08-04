@@ -91,7 +91,7 @@ export function Header() {
                   aria-label={s.label}
                   className="text-bone/50 transition-colors duration-300 hover:text-bone"
                 >
-                  <BrandIcon name={s.icon} size={15} />
+                  <BrandIcon name={s.icon} size={18} />
                 </a>
               ))}
             </div>

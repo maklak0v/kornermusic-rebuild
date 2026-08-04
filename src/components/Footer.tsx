@@ -106,7 +106,7 @@ export function Footer() {
 
           {/* Music platforms */}
           <div>
-            <p className="font-nemoy-thin text-[10px] uppercase tracking-ultra text-ash">
+            <p className="font-nemoy-thin text-xs uppercase tracking-ultra text-ash">
               MUSICA
             </p>
             <div className="mt-4 flex flex-col gap-1.5">
@@ -116,11 +116,11 @@ export function Footer() {
                   href={s.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-3 border-b border-bone/5 py-1.5 font-nemoy-thin text-xs uppercase tracking-wide text-bone/60 transition-colors hover:text-bone"
+                  className="group flex items-center gap-3 border-b border-bone/5 py-2 font-nemoy-thin text-sm uppercase tracking-wide text-bone/60 transition-colors hover:text-bone"
                 >
-                  <BrandIcon name={s.icon} size={14} className="shrink-0 text-bone/40 transition-colors group-hover:text-bone" />
+                  <BrandIcon name={s.icon} size={18} className="shrink-0 text-bone/40 transition-colors group-hover:text-bone" />
                   {s.label}
-                  <ArrowUpRight size={10} className="ml-auto text-bone/20 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-bone" strokeWidth={1.5} />
+                  <ArrowUpRight size={12} className="ml-auto text-bone/20 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-bone" strokeWidth={1.5} />
                 </a>
               ))}
             </div>
@@ -128,7 +128,7 @@ export function Footer() {
 
           {/* Social media */}
           <div>
-            <p className="font-nemoy-thin text-[10px] uppercase tracking-ultra text-ash">
+            <p className="font-nemoy-thin text-xs uppercase tracking-ultra text-ash">
               MEDIA
             </p>
             <div className="mt-4 flex flex-col gap-1.5">
@@ -138,11 +138,11 @@ export function Footer() {
                   href={s.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-3 border-b border-bone/5 py-1.5 font-nemoy-thin text-xs uppercase tracking-wide text-bone/60 transition-colors hover:text-bone"
+                  className="group flex items-center gap-3 border-b border-bone/5 py-2 font-nemoy-thin text-sm uppercase tracking-wide text-bone/60 transition-colors hover:text-bone"
                 >
-                  <BrandIcon name={s.icon} size={14} className="shrink-0 text-bone/40 transition-colors group-hover:text-bone" />
+                  <BrandIcon name={s.icon} size={18} className="shrink-0 text-bone/40 transition-colors group-hover:text-bone" />
                   {s.label}
-                  <ArrowUpRight size={10} className="ml-auto text-bone/20 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-bone" strokeWidth={1.5} />
+                  <ArrowUpRight size={12} className="ml-auto text-bone/20 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-bone" strokeWidth={1.5} />
                 </a>
               ))}
             </div>
