@@ -58,6 +58,11 @@ export function Footer() {
               the next transmission is already being created.
             </p>
           </FadeIn>
+          <FadeIn delay={0.45}>
+            <p className="mt-10 font-nemoy-thin text-[30px] uppercase tracking-ultra text-ash">
+              music for the moments that stay with you.
+            </p>
+          </FadeIn>
         </motion.div>
       </div>
 
@@ -126,12 +131,6 @@ export function Footer() {
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-bone/10 pt-6 sm:flex-row sm:items-center">
           <p className="font-nemoy-med text-sm uppercase tracking-ultra text-bone">
             KORNER
-          </p>
-          <p className="font-nemoy-thin text-[10px] uppercase tracking-ultra text-ash">
-            LOS ANGELES · 2026
-          </p>
-          <p className="font-nemoy-thin text-[10px] uppercase tracking-ultra text-ash">
-            music for the moments that stay with you.
           </p>
           <KollabDice />
         </div>
