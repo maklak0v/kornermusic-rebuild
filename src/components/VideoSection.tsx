@@ -41,9 +41,9 @@ export function VideoSection() {
           <FadeIn>
             <motion.h2
               style={reduced ? {} : { x: titleX }}
-              className="font-nemoy-black text-5xl uppercase leading-none tracking-tight text-bone sm:text-8xl"
+              className="font-nemoy-thin text-5xl uppercase leading-none tracking-tight text-bone sm:text-8xl"
             >
-              VIDEO
+              THE FILM
             </motion.h2>
           </FadeIn>
           <FadeIn delay={0.15}>
