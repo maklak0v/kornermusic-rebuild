@@ -42,19 +42,19 @@ export function Footer() {
       <div className="relative flex min-h-[60vh] flex-col items-center justify-center px-5 text-center">
         <motion.div style={reduced ? {} : { y: textY }}>
           <FadeIn>
-            <p className="font-nemoy-thin text-[21px] uppercase tracking-extreme text-ash">
+            <p className="font-nemoy-thin text-[16px] uppercase tracking-[0.3em] text-ash sm:text-[21px] sm:tracking-extreme">
               06 — END
             </p>
           </FadeIn>
           <FadeIn delay={0.15}>
-            <h2 className="mt-8 font-nemoy-med text-[35px] uppercase leading-tight tracking-wide text-bone sm:text-5xl md:text-6xl">
+            <h2 className="mt-6 font-nemoy-med text-[26px] uppercase leading-tight tracking-wide text-bone sm:mt-8 sm:text-4xl sm:text-5xl md:text-6xl">
               this is only
               <br />
               the beginning.
             </h2>
           </FadeIn>
           <FadeIn delay={0.45}>
-            <p className="mt-10 font-nemoy-thin text-[30px] uppercase tracking-ultra text-ash">
+            <p className="mt-8 font-nemoy-thin text-[18px] uppercase tracking-[0.2em] text-ash sm:mt-10 sm:text-[24px] sm:tracking-ultra sm:text-[30px]">
               music for the moments that stay with you.
             </p>
           </FadeIn>
@@ -62,8 +62,8 @@ export function Footer() {
       </div>
 
       {/* Newsletter + links */}
-      <div className="relative mx-auto max-w-[1600px] px-5 pb-12 sm:px-8">
-        <div className="grid grid-cols-1 gap-12 border-t border-bone/10 pt-12 md:grid-cols-3">
+      <div className="relative mx-auto max-w-[1600px] px-5 pb-12 pt-12 sm:px-8">
+        <div className="grid grid-cols-1 gap-10 border-t border-bone/10 pt-10 sm:grid-cols-2 md:grid-cols-3 md:gap-12">
           {/* Music platforms */}
           <div>
             <p className="font-nemoy-thin text-xs uppercase tracking-ultra text-ash">

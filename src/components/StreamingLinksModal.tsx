@@ -28,7 +28,7 @@ export function StreamingLinksModal({ open, onClose, links, title }: StreamingLi
             exit={{ opacity: 0, y: 20, scale: 0.98 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             onClick={(e) => e.stopPropagation()}
-            className="relative mx-4 w-full max-w-md border border-bone/10 bg-ink-900 p-8 sm:p-10"
+            className="relative mx-4 w-full max-w-md border border-bone/10 bg-ink-900 p-6 sm:p-8 sm:p-10"
           >
             <button
               onClick={onClose}
@@ -41,12 +41,12 @@ export function StreamingLinksModal({ open, onClose, links, title }: StreamingLi
             <p className="font-nemoy-thin text-[10px] uppercase tracking-ultra text-ash">
               listen now
             </p>
-            <h3 className="mt-1 font-nemoy-med text-xl uppercase tracking-wide text-bone">
+            <h3 className="mt-1 font-nemoy-med text-lg uppercase tracking-wide text-bone sm:text-xl">
               {title}
             </h3>
             <div className="mt-2 h-px w-full bg-bone/10" />
 
-            <div className="mt-6 flex flex-col gap-1">
+            <div className="mt-5 flex flex-col gap-1 sm:mt-6">
               {links.map((link, i) => (
                 <motion.a
                   key={link.platform}
@@ -56,10 +56,10 @@ export function StreamingLinksModal({ open, onClose, links, title }: StreamingLi
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: 0.1 + i * 0.05 }}
-                  className="group flex items-center justify-between border-b border-bone/5 py-3.5 transition-colors hover:bg-bone/[0.03]"
+                  className="group flex items-center justify-between border-b border-bone/5 py-3.5 transition-colors hover:bg-bone/[0.03] active:bg-bone/[0.05]"
                 >
                   <div className="flex items-center gap-4">
-                    <span className="flex h-9 w-9 items-center justify-center border border-bone/20 text-bone/50 transition-colors group-hover:border-bone/50 group-hover:text-bone">
+                    <span className="flex h-10 w-10 items-center justify-center border border-bone/20 text-bone/50 transition-colors group-hover:border-bone/50 group-hover:text-bone sm:h-9 sm:w-9">
                       {(() => {
                         const Icon = brandIconMap[link.platform];
                         if (Icon) return <Icon size={20} />;
@@ -81,7 +81,7 @@ export function StreamingLinksModal({ open, onClose, links, title }: StreamingLi
                       {link.platform}
                     </span>
                   </div>
-                  <Play size={14} className="text-bone/30 transition-all group-hover:translate-x-1 group-hover:text-bone" strokeWidth={1.5} />
+                  <Play size={16} className="text-bone/30 transition-all group-hover:translate-x-1 group-hover:text-bone" strokeWidth={1.5} />
                 </motion.a>
               ))}
             </div>

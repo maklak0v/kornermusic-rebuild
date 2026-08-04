@@ -81,7 +81,7 @@ export function VideoSection() {
     <section
       ref={sectionRef}
       id="video"
-      className="relative overflow-hidden bg-ink-950 py-28 sm:py-36"
+      className="relative overflow-hidden bg-ink-950 py-20 sm:py-28 md:py-36"
     >
       <div className="relative mx-auto max-w-[1600px] px-5 sm:px-8">
         <SectionLabel index="05" title="TRANSMISSIONS" />
@@ -89,13 +89,13 @@ export function VideoSection() {
           <FadeIn>
             <motion.h2
               style={reduced ? {} : { x: titleX }}
-              className="font-nemoy-thin text-5xl uppercase leading-none tracking-tight text-bone sm:text-8xl"
+              className="font-nemoy-thin text-4xl uppercase leading-none tracking-tight text-bone sm:text-6xl sm:text-8xl"
             >
               FILM
             </motion.h2>
           </FadeIn>
           <FadeIn delay={0.15}>
-            <p className="max-w-xs font-nemoy-thin text-sm leading-relaxed text-ash">
+            <p className="max-w-xs font-nemoy-thin text-[13px] leading-relaxed text-ash sm:text-sm">
               every version is part of the story.
             </p>
           </FadeIn>
@@ -103,7 +103,7 @@ export function VideoSection() {
       </div>
 
       {/* Featured video */}
-      <div className="relative mt-14 px-5 sm:px-8">
+      <div className="relative mt-10 px-5 sm:mt-14 sm:px-8">
         <AnimatePresence mode="wait">
           <motion.button
             key={active.id}
@@ -134,7 +134,7 @@ export function VideoSection() {
                 </div>
               </div>
 
-              <div className="absolute bottom-0 left-0 flex w-full flex-col gap-2 p-5 sm:p-8">
+              <div className="absolute bottom-0 left-0 flex w-full flex-col gap-2 p-4 sm:p-8">
                 <div className="flex items-center gap-3">
                   <span className={`border px-2 py-0.5 font-nemoy-thin text-[8px] uppercase tracking-ultra ${active.unavailable ? 'border-ember/40 text-ember/80' : 'border-bone/30 text-bone'}`}>
                     {active.unavailable ? (active.statusText ?? 'UNAVAILABLE') : active.category}
@@ -143,13 +143,13 @@ export function VideoSection() {
                     {active.beta} · {active.duration}
                   </span>
                 </div>
-                <h3 className="font-nemoy-black text-3xl uppercase leading-none tracking-tight text-bone sm:text-5xl">
+                <h3 className="font-nemoy-black text-2xl uppercase leading-none tracking-tight text-bone sm:text-4xl sm:text-5xl">
                   {active.title}
                 </h3>
-                <p className="font-nemoy-thin text-xs italic leading-relaxed text-bone/60 sm:text-sm">
+                <p className="font-nemoy-thin text-[11px] italic leading-relaxed text-bone/60 sm:text-sm">
                   &ldquo;{active.quote}&rdquo;
                 </p>
-                <p className="max-w-lg font-nemoy-thin text-xs leading-relaxed text-bone/50 sm:text-sm">
+                <p className="max-w-lg font-nemoy-thin text-[11px] leading-relaxed text-bone/50 sm:text-sm">
                   {active.description}
                 </p>
               </div>
@@ -159,7 +159,7 @@ export function VideoSection() {
       </div>
 
       {/* Thumbnail carousel */}
-      <div className="relative mt-8 px-5 sm:px-8">
+      <div className="relative mt-6 px-5 sm:mt-8 sm:px-8">
         <div className="flex items-center gap-3 sm:gap-5">
           <CarouselArrow
             dir="left"
@@ -297,7 +297,7 @@ function ThumbnailCard({
           <p className="font-nemoy-thin text-[8px] uppercase tracking-ultra text-bone/60">
             {video.category}
           </p>
-          <h4 className="mt-0.5 font-nemoy-med text-sm uppercase tracking-wide text-bone">
+          <h4 className="mt-0.5 font-nemoy-med text-[13px] uppercase tracking-wide text-bone sm:text-sm">
             {video.title}
           </h4>
         </div>

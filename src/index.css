@@ -4,31 +4,32 @@
 
 /* ============================================================
    KORNER — NEMOY FONT SYSTEM
-   Place licensed woff2 files in /public/fonts/
    ============================================================ */
 :root {
-  --font-nemoy-thin: 'Nemoy Thin';
-  --font-nemoy-medium: 'Nemoy Medium';
-  --font-nemoy-black: 'Nemoy Black';
+  --font-nemoy-thin: 'Nemoy';
+  --font-nemoy-medium: 'Nemoy';
+  --font-nemoy-black: 'Nemoy';
   --font-fallback: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 @font-face {
-  font-family: 'Nemoy Thin';
+  font-family: 'Nemoy';
   src: url('/fonts/Nemoy-Thin.woff2') format('woff2');
   font-weight: 100;
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
-  font-family: 'Nemoy Medium';
+  font-family: 'Nemoy';
   src: url('/fonts/Nemoy-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
-  font-family: 'Nemoy Black';
+  font-family: 'Nemoy';
   src: url('/fonts/Nemoy-Black.woff2') format('woff2');
   font-weight: 900;
   font-style: normal;
@@ -46,14 +47,19 @@
 html {
   background: #050505;
   scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   background: #050505;
   color: #e8e4dc;
-  font-family: var(--font-fallback);
+  font-family: 'Nemoy', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 ::selection {
@@ -157,6 +163,31 @@ button:focus-visible,
 input:focus-visible {
   outline: 1px solid rgba(232, 228, 220, 0.6);
   outline-offset: 3px;
+}
+
+/* ============================================================
+   MOBILE TYPOGRAPHY
+   ============================================================ */
+@media (max-width: 768px) {
+  h1, h2, h3 {
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+  }
+  p {
+    line-height: 1.65;
+  }
+}
+
+/* ============================================================
+   MOBILE OVERFLOW SAFETY
+   ============================================================ */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+  }
+  img {
+    max-width: 100%;
+  }
 }
 
 /* ============================================================

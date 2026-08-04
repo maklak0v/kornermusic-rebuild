@@ -35,7 +35,7 @@ export function MerchSection() {
   };
 
   return (
-    <section ref={sectionRef} id="merch" className="relative overflow-hidden bg-ink-950 py-28 sm:py-36">
+    <section ref={sectionRef} id="merch" className="relative overflow-hidden bg-ink-950 py-20 sm:py-28 md:py-36">
       {/* Giant background word */}
       <motion.h2
         style={reduced ? {} : { x: titleX }}
@@ -48,7 +48,7 @@ export function MerchSection() {
         <SectionLabel index="03" title="MERCH" />
         <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <FadeIn>
-            <h2 className="font-nemoy-thin text-5xl uppercase leading-none tracking-tight text-bone sm:text-7xl">
+            <h2 className="font-nemoy-thin text-[28px] uppercase leading-[1.05] tracking-[0.02em] text-bone sm:text-5xl sm:leading-none sm:tracking-tight md:text-7xl">
               objects from the
               <br />
               <span className="text-bone/40">world of KORNER.</span>
@@ -56,7 +56,7 @@ export function MerchSection() {
           </FadeIn>
           <FadeIn delay={0.15}>
             <div className="flex items-center gap-3">
-              <span className="font-nemoy-thin text-[15px] uppercase tracking-ultra text-ash">
+              <span className="font-nemoy-thin text-[12px] uppercase tracking-[0.2em] text-ash sm:text-[15px] sm:tracking-ultra">
                 FIRST DROP COMING SOON
               </span>
               <div className="hidden gap-2 sm:flex">
@@ -83,7 +83,7 @@ export function MerchSection() {
       {/* Horizontal product track */}
       <div
         ref={trackRef}
-        className="relative mt-14 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-6 [scrollbar-width:none] sm:gap-8 sm:px-8 [&::-webkit-scrollbar]:hidden"
+        className="relative mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-6 [scrollbar-width:none] sm:mt-14 sm:gap-8 sm:px-8 [&::-webkit-scrollbar]:hidden"
       >
         {merch.map((product, i) => (
           <ProductItem
@@ -97,14 +97,14 @@ export function MerchSection() {
         ))}
 
         {/* Notify card at the end */}
-        <div className="flex snap-center shrink-0 flex-col justify-center border border-bone/10 bg-ink-900 p-8 w-[85vw] sm:w-[480px]">
+        <div className="flex snap-center shrink-0 flex-col justify-center border border-bone/10 bg-ink-900 p-6 w-[85vw] sm:w-[480px] sm:p-8">
           <p className="font-nemoy-thin text-[15px] uppercase tracking-ultra text-ash">
             NOTIFY
           </p>
-          <h3 className="mt-2 font-nemoy-med text-[29px] uppercase leading-tight tracking-wide text-bone">
+          <h3 className="mt-2 font-nemoy-med text-[22px] uppercase leading-tight tracking-wide text-bone sm:text-[29px]">
             be first in line.
           </h3>
-          <p className="mt-2 font-nemoy-thin text-[19px] leading-relaxed text-bone/50">
+          <p className="mt-2 font-nemoy-thin text-[16px] leading-relaxed text-bone/50 sm:text-[19px]">
             notify me when the first drop begins.
           </p>
           {submitted ? (
@@ -119,11 +119,11 @@ export function MerchSection() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="email address"
-                className="border-b border-bone/20 bg-transparent py-3 font-nemoy-thin text-[19px] text-bone placeholder:text-ash focus:border-bone/60 focus:outline-none"
+                className="border-b border-bone/20 bg-transparent py-3 font-nemoy-thin text-[16px] text-bone placeholder:text-ash focus:border-bone/60 focus:outline-none sm:text-[19px]"
               />
               <button
                 type="submit"
-                className="mt-2 flex items-center justify-center border border-bone/30 py-3 font-nemoy-thin text-[16px] uppercase tracking-ultra text-bone transition-all hover:bg-bone hover:text-ink"
+                className="mt-2 flex items-center justify-center border border-bone/30 py-3 font-nemoy-thin text-[14px] uppercase tracking-[0.2em] text-bone transition-all hover:bg-bone hover:text-ink sm:text-[16px] sm:tracking-ultra"
               >
                 NOTIFY ME
               </button>
@@ -175,17 +175,17 @@ function ProductItem({ product, index, onEnter, onLeave, reduced }: ProductItemP
 
         {/* Coming soon centred */}
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-          <span className="font-nemoy-thin text-[15px] uppercase tracking-ultra text-bone/50">
+          <span className="font-nemoy-thin text-[12px] uppercase tracking-[0.2em] text-bone/50 sm:text-[15px] sm:tracking-ultra">
             {product.drop}
           </span>
-          <span className="font-nemoy-med text-[25px] uppercase tracking-ultra text-bone sm:text-[29px]">
+          <span className="font-nemoy-med text-[20px] uppercase tracking-[0.2em] text-bone sm:text-[25px] sm:tracking-ultra">
             COMING SOON
           </span>
         </div>
 
         {/* Code overlay */}
         <div className="absolute bottom-3 left-3">
-          <span className="font-nemoy-thin text-[14px] uppercase tracking-ultra text-bone/50">
+          <span className="font-nemoy-thin text-[12px] uppercase tracking-[0.2em] text-bone/50 sm:text-[14px] sm:tracking-ultra">
             {product.code}
           </span>
         </div>
@@ -194,26 +194,26 @@ function ProductItem({ product, index, onEnter, onLeave, reduced }: ProductItemP
       {/* Info */}
       <div className="mt-4 flex items-start justify-between">
         <div>
-          <h3 className="font-nemoy-med text-[19px] uppercase tracking-wide text-bone">
+          <h3 className="font-nemoy-med text-[16px] uppercase tracking-wide text-bone sm:text-[19px]">
             {product.name}
           </h3>
-          <p className="mt-1 font-nemoy-thin text-[15px] uppercase tracking-ultra text-ash">
+          <p className="mt-1 font-nemoy-thin text-[12px] uppercase tracking-[0.2em] text-ash sm:text-[15px] sm:tracking-ultra">
             {product.drop} · {product.price}
           </p>
         </div>
-        <span className="font-nemoy-thin text-[15px] uppercase tracking-ultra text-bone/40 transition-colors group-hover:text-bone">
+        <span className="font-nemoy-thin text-[12px] uppercase tracking-[0.2em] text-bone/40 transition-colors group-hover:text-bone sm:text-[15px] sm:tracking-ultra">
           {product.status === 'coming-soon' ? 'NOTIFY ME' : 'VIEW ITEM'}
         </span>
       </div>
 
       {/* Hover detail */}
       <div className="mt-3 max-h-0 overflow-hidden opacity-0 transition-all duration-500 group-hover:max-h-32 group-hover:opacity-100">
-        <p className="font-nemoy-thin text-[17px] leading-relaxed text-bone/50">
+        <p className="font-nemoy-thin text-[15px] leading-relaxed text-bone/50 sm:text-[17px]">
           {product.description}
         </p>
         <div className="mt-3 flex gap-1.5">
           {product.sizes.map((s) => (
-            <span key={s} className="border border-bone/15 px-2 py-0.5 font-nemoy-thin text-[14px] uppercase text-bone/40">
+            <span key={s} className="border border-bone/15 px-2 py-0.5 font-nemoy-thin text-[12px] uppercase text-bone/40 sm:text-[14px]">
               {s}
             </span>
           ))}

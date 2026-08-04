@@ -187,7 +187,7 @@ export function ReleasePlayer({ release }: ReleasePlayerProps) {
           aria-valuemin={0}
           aria-valuemax={Math.floor(duration)}
           aria-valuenow={Math.floor(current)}
-          className="flex h-12 cursor-pointer items-center gap-[2px] overflow-hidden outline-none focus-visible:ring-1 focus-visible:ring-bone/30"
+          className="flex h-14 cursor-pointer items-center gap-[2px] overflow-hidden outline-none focus-visible:ring-1 focus-visible:ring-bone/30 sm:h-12"
         >
           {bars.map((h, i) => {
             const active = (i / bars.length) * 100 <= progress;
@@ -210,12 +210,12 @@ export function ReleasePlayer({ release }: ReleasePlayerProps) {
         <div className="flex items-center gap-4">
           <button
             onClick={togglePlay}
-            className="flex h-9 w-9 items-center justify-center border border-bone/20 text-bone transition-colors hover:bg-bone hover:text-ink"
+            className="flex h-11 w-11 items-center justify-center border border-bone/20 text-bone transition-colors hover:bg-bone hover:text-ink sm:h-9 sm:w-9"
             aria-label={playing ? 'Pause' : 'Play'}
           >
-            {playing ? <Pause size={14} strokeWidth={1.5} /> : <Play size={14} strokeWidth={1.5} className="ml-0.5" />}
+            {playing ? <Pause size={16} strokeWidth={1.5} /> : <Play size={16} strokeWidth={1.5} className="ml-0.5" />}
           </button>
-          <span className="timestamp font-nemoy-thin text-[20px] uppercase tracking-wide text-bone/50">
+          <span className="timestamp font-nemoy-thin text-[16px] uppercase tracking-[0.1em] text-bone/50 sm:text-[20px] sm:tracking-wide">
             {fmt(current)} / {fmt(duration)}
           </span>
         </div>
@@ -223,10 +223,10 @@ export function ReleasePlayer({ release }: ReleasePlayerProps) {
         <div className="flex items-center gap-3">
           <button
             onClick={toggleMute}
-            className="text-bone/40 transition-colors hover:text-bone"
+            className="flex h-11 w-11 items-center justify-center text-bone/40 transition-colors hover:text-bone sm:h-auto sm:w-auto"
             aria-label={muted ? 'Unmute' : 'Mute'}
           >
-            {muted ? <VolumeX size={14} strokeWidth={1.5} /> : <Volume2 size={14} strokeWidth={1.5} />}
+            {muted ? <VolumeX size={16} strokeWidth={1.5} /> : <Volume2 size={16} strokeWidth={1.5} />}
           </button>
           <div
             onClick={onVolume}

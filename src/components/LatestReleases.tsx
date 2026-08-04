@@ -128,7 +128,7 @@ export function LatestReleases() {
       >
         <SectionLabel index="01" title="STORY" />
 
-        <div className="flex flex-1 items-center justify-center py-20 sm:py-28">
+        <div className="flex flex-1 items-center justify-center py-12 sm:py-20 md:py-28">
           <FadeIn delay={0.1}>
             <div className="mx-auto max-w-4xl text-center">
               <motion.div
@@ -144,7 +144,7 @@ export function LatestReleases() {
                   whileInView={reduced ? undefined : 'visible'}
                   variants={reduced ? undefined : wordContainer}
                   viewport={{ once: true, margin: '-80px' }}
-                  className="font-nemoy-thin text-xl leading-[2] tracking-[0.07em] text-bone/75 sm:text-2xl md:text-[1.65rem]"
+                  className="font-nemoy-thin text-[16px] leading-[1.9] tracking-[0.04em] text-bone/75 sm:text-xl sm:leading-[2] sm:tracking-[0.07em] md:text-[1.65rem]"
                 >
                   {STORY_TEXT.split(' ').map((word, i) => (
                     <motion.span
@@ -164,7 +164,7 @@ export function LatestReleases() {
                   whileInView={reduced ? undefined : 'visible'}
                   variants={reduced ? undefined : chapterVariant}
                   viewport={{ once: true, margin: '-40px' }}
-                  className="mt-6 font-nemoy-thin text-sm uppercase tracking-[0.35em] text-bone/70"
+                  className="mt-6 font-nemoy-thin text-[11px] uppercase tracking-[0.25em] text-bone/70 sm:text-sm sm:tracking-[0.35em]"
                 >
                   chapter 01 · the beginning
                 </motion.p>
@@ -182,13 +182,13 @@ export function LatestReleases() {
         <SectionLabel index="02" title="LATEST TRANSMISSION" />
 
         <FadeIn delay={0.1}>
-          <h2 className="mt-6 font-nemoy-thin text-[14vw] leading-[0.9] tracking-tight text-bone/95 sm:text-[10vw] md:text-[8vw] lg:text-[7vw]">
+          <h2 className="mt-6 font-nemoy-thin text-[12vw] leading-[0.9] tracking-tight text-bone/95 sm:text-[10vw] md:text-[8vw] lg:text-[7vw]">
             NEW MUSIC
           </h2>
         </FadeIn>
 
         <FadeIn delay={0.2}>
-          <p className="mt-4 max-w-xl font-nemoy-thin text-[18px] leading-relaxed tracking-[0.06em] text-ash sm:text-[20px] md:text-[22px]">
+          <p className="mt-4 max-w-xl font-nemoy-thin text-[15px] leading-relaxed tracking-[0.04em] text-ash sm:text-[18px] sm:tracking-[0.06em] md:text-[22px]">
             every release is another chapter.
           </p>
         </FadeIn>
@@ -231,10 +231,10 @@ export function LatestReleases() {
               dragElastic={0.2}
               dragMomentum={false}
               onDragEnd={onDragEnd}
-              className="relative mx-auto flex min-h-[75svh] max-w-[1600px] cursor-grab flex-col items-center justify-start gap-10 px-5 pb-28 pt-10 active:cursor-grabbing sm:px-8 sm:pt-14 lg:flex-row lg:justify-center lg:gap-16"
+              className="relative mx-auto flex min-h-[75svh] max-w-[1600px] cursor-grab flex-col items-center justify-start gap-6 px-5 pb-24 pt-6 active:cursor-grabbing sm:gap-10 sm:px-8 sm:pt-14 sm:pb-28 lg:flex-row lg:justify-center lg:gap-16"
             >
               {/* Artwork */}
-              <div className="relative w-full max-w-sm shrink-0 lg:w-[42%] lg:max-w-md">
+              <div className="relative w-full max-w-[280px] shrink-0 sm:max-w-sm lg:w-[42%] lg:max-w-md">
                 <div className="group relative aspect-square w-full overflow-hidden">
                   <img
                     src={active.artwork}
@@ -259,7 +259,7 @@ export function LatestReleases() {
 
               {/* Info */}
               <div className="flex w-full flex-col lg:w-[50%]">
-                <div className="grid grid-cols-2 gap-x-8 gap-y-3 border-b border-bone/10 pb-6 sm:grid-cols-3">
+                <div className="grid grid-cols-2 gap-x-4 gap-y-3 border-b border-bone/10 pb-5 sm:grid-cols-3 sm:gap-x-8 sm:pb-6">
                   <MetaItem label="artist" value="KORNER" />
                   <MetaItem label="title" value={active.title} />
                   <MetaItem label="version" value={active.version} />
@@ -268,7 +268,7 @@ export function LatestReleases() {
                   <MetaItem label="year" value={active.year} />
                 </div>
 
-                <p className="mt-6 max-w-xl font-nemoy-thin text-[15px] leading-[1.9] tracking-[0.04em] text-bone/65 sm:text-[16px]">
+                <p className="mt-5 max-w-xl font-nemoy-thin text-[14px] leading-[1.8] tracking-[0.03em] text-bone/65 sm:mt-6 sm:text-[16px] sm:leading-[1.9] sm:tracking-[0.04em]">
                   {active.description}
                 </p>
 
@@ -287,7 +287,7 @@ export function LatestReleases() {
                     onClick={() => setStreamingOpen(true)}
                     onMouseEnter={onListenEnter}
                     onMouseLeave={onListenLeave}
-                    className="group flex items-center gap-2 bg-bone px-8 py-5 font-nemoy-black text-[25px] uppercase tracking-ultra text-ink transition-all duration-300 hover:bg-bone/80"
+                    className="group flex items-center gap-2 bg-bone px-6 py-4 font-nemoy-black text-[18px] uppercase tracking-[0.2em] text-ink transition-all duration-300 hover:bg-bone/80 sm:px-8 sm:py-5 sm:text-[25px] sm:tracking-ultra"
                   >
                     {active.status === 'upcoming' ? 'PRE-SAVE' : `STREAM ${active.title}`}
                   </button>
@@ -298,7 +298,7 @@ export function LatestReleases() {
 
           {/* Navigation */}
           {total > 1 && (
-            <div className="absolute bottom-8 left-0 right-0 flex items-center justify-center gap-6">
+            <div className="absolute bottom-6 left-0 right-0 flex items-center justify-center gap-4 px-5 sm:bottom-8 sm:gap-6 sm:px-0">
               <button
                 type="button"
                 onClick={() => paginate(-1)}
@@ -310,7 +310,7 @@ export function LatestReleases() {
 
               {/* Slide indicator: counter + dots */}
               <div className="flex items-center gap-3">
-                <span className="font-nemoy-thin text-[10px] uppercase tracking-ultra text-bone/50">
+                <span className="font-nemoy-thin text-[9px] uppercase tracking-[0.2em] text-bone/50 sm:text-[10px] sm:tracking-ultra">
                   {String(activeIdx + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
                 </span>
                 <div className="flex items-center gap-2">
@@ -356,10 +356,10 @@ export function LatestReleases() {
 function MetaItem({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex flex-col">
-      <span className="font-nemoy-thin text-[18px] uppercase tracking-ultra text-ash">
+      <span className="font-nemoy-thin text-[14px] uppercase tracking-[0.2em] text-ash sm:text-[18px] sm:tracking-ultra">
         {label}
       </span>
-      <span className="font-nemoy-med text-[34px] uppercase tracking-wide text-bone">
+      <span className="font-nemoy-med text-[22px] uppercase tracking-wide text-bone sm:text-[34px]">
         {value}
       </span>
     </div>

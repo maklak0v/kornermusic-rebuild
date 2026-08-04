@@ -65,7 +65,7 @@ export function Hero() {
                   scale: lettersScale,
                 }
           }
-          className="select-none font-nemoy-thin text-[28vw] leading-[0.82] tracking-tight text-bone/90 sm:text-[25vw] md:text-[23vw] lg:text-[22vw]"
+          className="select-none font-nemoy-thin text-[22vw] leading-[0.82] tracking-tight text-bone/90 sm:text-[22vw] md:text-[22vw] lg:text-[22vw]"
           aria-label="KORNER"
         >
           <span className="flex">
@@ -205,9 +205,9 @@ export function Hero() {
           duration: 1,
           delay: 3,
         }}
-        className="absolute left-5 top-28 hidden sm:left-8 sm:block lg:left-10"
+        className="absolute left-5 top-24 sm:left-8 sm:top-28 lg:left-10"
       >
-        <p className="font-nemoy-thin text-[16px] uppercase tracking-ultra text-ash lg:text-[17px]">
+        <p className="font-nemoy-thin text-[13px] uppercase tracking-ultra text-ash sm:text-[16px] lg:text-[17px]">
           DTLA
         </p>
       </motion.div>
@@ -227,9 +227,9 @@ export function Hero() {
           duration: 1,
           delay: 3.1,
         }}
-        className="absolute right-5 top-28 hidden text-right sm:right-8 sm:block lg:right-10"
+        className="absolute right-5 top-24 text-right sm:right-8 sm:top-28 lg:right-10"
       >
-        <p className="font-nemoy-thin text-[16px] uppercase tracking-ultra text-ash lg:text-[17px]">
+        <p className="font-nemoy-thin text-[13px] uppercase tracking-ultra text-ash sm:text-[16px] lg:text-[17px]">
           ph: @albanski.vids
         </p>
       </motion.div>

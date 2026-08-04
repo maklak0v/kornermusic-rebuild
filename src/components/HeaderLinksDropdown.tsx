@@ -102,7 +102,7 @@ function LinkColumn({
             href={s.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-3 rounded-lg px-3 py-2.5 font-nemoy-thin text-sm uppercase tracking-wide text-bone/70 transition-colors hover:bg-bone/5 hover:text-bone"
+            className="group flex items-center gap-3 rounded-lg px-3 py-3 font-nemoy-thin text-sm uppercase tracking-wide text-bone/70 transition-colors hover:bg-bone/5 hover:text-bone active:bg-bone/10"
           >
             <BrandIcon
               name={s.icon}
@@ -130,7 +130,7 @@ export function MobileLinksAccordion() {
       <button
         type="button"
         onClick={() => setExpanded((v) => !v)}
-        className="flex items-center justify-between font-nemoy-thin text-[24px] uppercase tracking-[0.2em] text-bone transition-colors hover:text-ember"
+        className="flex items-center justify-between font-nemoy-thin text-[22px] uppercase tracking-[0.18em] text-bone transition-colors hover:text-ember"
         aria-expanded={expanded}
       >
         LINKS
