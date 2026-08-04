@@ -114,12 +114,12 @@ export function PhotoArchive() {
           reduced={reduced}
         />
 
-        {/* frame_008 — medium vertical, flush top beside the anchor */}
+        {/* frame_010 — medium vertical, flush top beside the anchor */}
         <PhotoTile
-          photo={photos[7]}
+          photo={photos[9]}
           className="col-span-6 md:col-span-3 sm:col-span-6 mt-6 md:mt-6"
           aspect="aspect-[3/4]"
-          onClick={() => openLightbox(7)}
+          onClick={() => openLightbox(9)}
           onEnter={onPhotoEnter}
           onLeave={onPhotoLeave}
           reduced={reduced}
@@ -136,12 +136,12 @@ export function PhotoArchive() {
           reduced={reduced}
         />
 
-        {/* frame_010 — slightly wider than 009, flush top */}
+        {/* frame_008 — slightly wider than 009, dropped down */}
         <PhotoTile
-          photo={photos[9]}
-          className="col-span-12 md:col-span-2 sm:col-span-12 mt-6 md:mt-6"
+          photo={photos[7]}
+          className="col-span-12 md:col-span-2 sm:col-span-12 mt-6 md:mt-16"
           aspect="aspect-[3/4]"
-          onClick={() => openLightbox(9)}
+          onClick={() => openLightbox(7)}
           onEnter={onPhotoEnter}
           onLeave={onPhotoLeave}
           reduced={reduced}
