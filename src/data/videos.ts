@@ -27,8 +27,7 @@ export const videos: VideoItem[] = [
     category: 'ORIGINAL MUSIC',
     date: '2026.01.18',
     duration: '04:04',
-    description:
-      'The official visualizer for マキシム. Shot on a single hand-held camera through the streets of downtown LA after midnight.',
+    description: 'something small that reminds you why you started.',
     quote: 'a city is just a room with no ceiling',
     thumbnail: '/images/IMG_7210_(IKON).png',
     featuredImage: '/images/IMG_7210_(IKON).png',
