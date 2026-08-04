@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { KollabDice } from '@/components/KollabDice';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
@@ -18,8 +18,6 @@ const CONTACT = [
 export function Footer() {
   const ref = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
-  const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -28,11 +26,6 @@ export function Footer() {
   const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
   const bgScale = useTransform(scrollYProgress, [0, 1], [1.1, 1.25]);
   const textY = useTransform(scrollYProgress, [0, 1], ['20%', '-10%']);
-
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email.trim()) setSubmitted(true);
-  };
 
   return (
     <footer ref={ref} className="relative min-h-[100svh] overflow-hidden bg-ink">
@@ -74,36 +67,7 @@ export function Footer() {
 
       {/* Newsletter + links */}
       <div className="relative mx-auto max-w-[1600px] px-5 pb-12 sm:px-8">
-        <div className="grid grid-cols-1 gap-12 border-t border-bone/10 pt-12 md:grid-cols-4">
-          {/* Newsletter */}
-          <div className="md:col-span-1">
-            <p className="font-nemoy-thin text-[10px] uppercase tracking-ultra text-ash">
-              RECEIVE THE NEXT TRANSMISSION
-            </p>
-            {submitted ? (
-              <p className="mt-4 font-nemoy-thin text-sm text-bone">
-                you're connected. stay listening.
-              </p>
-            ) : (
-              <form onSubmit={onSubmit} className="mt-4 flex flex-col gap-3 sm:flex-row">
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="email"
-                  className="border-b border-bone/20 bg-transparent py-2 font-nemoy-thin text-sm text-bone placeholder:text-ash focus:border-bone/60 focus:outline-none sm:flex-1"
-                />
-                <button
-                  type="submit"
-                  className="border border-bone/30 px-5 py-2.5 font-nemoy-thin text-[10px] uppercase tracking-ultra text-bone transition-all hover:bg-bone hover:text-ink"
-                >
-                  SUBSCRIBE
-                </button>
-              </form>
-            )}
-          </div>
-
+        <div className="grid grid-cols-1 gap-12 border-t border-bone/10 pt-12 md:grid-cols-3">
           {/* Music platforms */}
           <div>
             <p className="font-nemoy-thin text-xs uppercase tracking-ultra text-ash">
