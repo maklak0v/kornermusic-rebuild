@@ -30,8 +30,8 @@ export const videos: VideoItem[] = [
     description:
       'The official visualizer for マキシム. Shot on a single hand-held camera through the streets of downtown LA after midnight.',
     quote: 'a city is just a room with no ceiling',
-    thumbnail: '/images/image.png',
-    featuredImage: '/images/image.png',
+    thumbnail: '/images/IMG_7210_(IKON).png',
+    featuredImage: '/images/IMG_7210_(IKON).png',
     youtubeUrl: 'https://www.youtube.com/watch?v=asywxoK5l3k',
   },
   {
