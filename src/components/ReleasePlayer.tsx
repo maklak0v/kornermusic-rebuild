@@ -16,23 +16,55 @@ export function ReleasePlayer({ release }: ReleasePlayerProps) {
   const [volume, setVolume] = useState(0.7);
   const rafRef = useRef<number>(0);
 
+  const playingRef = useRef(false);
+
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio || !release.previewAudio) return;
 
     const onLoaded = () => setDuration(audio.duration || 0);
     const onEnded = () => {
+      playingRef.current = false;
       setPlaying(false);
       setProgress(0);
       setCurrent(0);
+      cancelAnimationFrame(rafRef.current);
+    };
+    const onPause = () => {
+      playingRef.current = false;
+      setPlaying(false);
+      cancelAnimationFrame(rafRef.current);
+    };
+    const onPlay = () => {
+      playingRef.current = true;
+      setPlaying(true);
+      const update = () => {
+        if (!audioRef.current || !playingRef.current) return;
+        setCurrent(audioRef.current.currentTime);
+        setProgress((audioRef.current.currentTime / (audioRef.current.duration || 1)) * 100);
+        rafRef.current = requestAnimationFrame(update);
+      };
+      cancelAnimationFrame(rafRef.current);
+      update();
+    };
+    const onSeeked = () => {
+      if (playingRef.current) {
+        audio.play().catch(() => {});
+      }
     };
 
     audio.addEventListener('loadedmetadata', onLoaded);
     audio.addEventListener('ended', onEnded);
+    audio.addEventListener('pause', onPause);
+    audio.addEventListener('play', onPlay);
+    audio.addEventListener('seeked', onSeeked);
 
     return () => {
       audio.removeEventListener('loadedmetadata', onLoaded);
       audio.removeEventListener('ended', onEnded);
+      audio.removeEventListener('pause', onPause);
+      audio.removeEventListener('play', onPlay);
+      audio.removeEventListener('seeked', onSeeked);
       cancelAnimationFrame(rafRef.current);
     };
   }, [release.previewAudio]);
@@ -42,19 +74,8 @@ export function ReleasePlayer({ release }: ReleasePlayerProps) {
     if (!audio) return;
     if (playing) {
       audio.pause();
-      setPlaying(false);
-      cancelAnimationFrame(rafRef.current);
     } else {
-      audio.play().then(() => {
-        setPlaying(true);
-        const update = () => {
-          if (!audioRef.current) return;
-          setCurrent(audioRef.current.currentTime);
-          setProgress((audioRef.current.currentTime / (audioRef.current.duration || 1)) * 100);
-          rafRef.current = requestAnimationFrame(update);
-        };
-        update();
-      }).catch(() => {});
+      audio.play().catch(() => {});
     }
   };
 
@@ -102,7 +123,7 @@ export function ReleasePlayer({ release }: ReleasePlayerProps) {
 
   return (
     <div className="w-full">
-      <audio ref={audioRef} src={release.previewAudio} preload="none" />
+      <audio ref={audioRef} src={release.previewAudio} preload="metadata" />
 
       {/* Waveform / progress */}
       <div className="group relative">
