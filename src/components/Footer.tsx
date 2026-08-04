@@ -2,7 +2,8 @@ import { useRef, useState } from 'react';
 import { KollabDice } from '@/components/KollabDice';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
-import { socialLinks } from '@/data/social';
+import { musicLinks, socialMediaLinks } from '@/data/social';
+import { BrandIcon } from '@/components/BrandIcons';
 import { FadeIn } from '@/components/SectionLabel';
 import { useReducedMotion } from '@/hooks/useUi';
 
@@ -53,7 +54,7 @@ export function Footer() {
         <motion.div style={reduced ? {} : { y: textY }}>
           <FadeIn>
             <p className="font-nemoy-thin text-[11px] uppercase tracking-extreme text-ash">
-              05 — END
+              06 — END
             </p>
           </FadeIn>
           <FadeIn delay={0.15}>
@@ -73,9 +74,9 @@ export function Footer() {
 
       {/* Newsletter + links */}
       <div className="relative mx-auto max-w-[1600px] px-5 pb-12 sm:px-8">
-        <div className="grid grid-cols-1 gap-12 border-t border-bone/10 pt-12 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-12 border-t border-bone/10 pt-12 md:grid-cols-4">
           {/* Newsletter */}
-          <div>
+          <div className="md:col-span-1">
             <p className="font-nemoy-thin text-[10px] uppercase tracking-ultra text-ash">
               RECEIVE THE NEXT TRANSMISSION
             </p>
@@ -103,22 +104,45 @@ export function Footer() {
             )}
           </div>
 
-          {/* Social */}
+          {/* Music platforms */}
           <div>
             <p className="font-nemoy-thin text-[10px] uppercase tracking-ultra text-ash">
-              CONNECT
+              MUSICA
             </p>
-            <div className="mt-4 flex flex-col gap-2">
-              {socialLinks.map((s) => (
+            <div className="mt-4 flex flex-col gap-1.5">
+              {musicLinks.map((s) => (
                 <a
                   key={s.label}
                   href={s.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center justify-between border-b border-bone/5 py-1.5 font-nemoy-thin text-sm uppercase tracking-wide text-bone/60 transition-colors hover:text-bone"
+                  className="group flex items-center gap-3 border-b border-bone/5 py-1.5 font-nemoy-thin text-xs uppercase tracking-wide text-bone/60 transition-colors hover:text-bone"
                 >
+                  <BrandIcon name={s.icon} size={14} className="shrink-0 text-bone/40 transition-colors group-hover:text-bone" />
                   {s.label}
-                  <ArrowUpRight size={12} className="text-bone/30 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-bone" strokeWidth={1.5} />
+                  <ArrowUpRight size={10} className="ml-auto text-bone/20 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-bone" strokeWidth={1.5} />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Social media */}
+          <div>
+            <p className="font-nemoy-thin text-[10px] uppercase tracking-ultra text-ash">
+              MEDIA
+            </p>
+            <div className="mt-4 flex flex-col gap-1.5">
+              {socialMediaLinks.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-3 border-b border-bone/5 py-1.5 font-nemoy-thin text-xs uppercase tracking-wide text-bone/60 transition-colors hover:text-bone"
+                >
+                  <BrandIcon name={s.icon} size={14} className="shrink-0 text-bone/40 transition-colors group-hover:text-bone" />
+                  {s.label}
+                  <ArrowUpRight size={10} className="ml-auto text-bone/20 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-bone" strokeWidth={1.5} />
                 </a>
               ))}
             </div>

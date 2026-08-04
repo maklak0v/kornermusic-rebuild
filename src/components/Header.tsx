@@ -3,6 +3,8 @@ import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { useScrolled } from '@/hooks/useUi';
 import { KollabDice } from '@/components/KollabDice';
+import { BrandIcon } from '@/components/BrandIcons';
+import { socialLinks } from '@/data/social';
 
 const NAV = [
   { label: 'STORY', href: '#story' },
@@ -77,7 +79,23 @@ export function Header() {
           </nav>
 
           {/* Kollab logo and mobile menu */}
-          <div className="flex items-center gap-5 lg:gap-8">
+          <div className="flex items-center gap-3 lg:gap-5">
+            {/* Desktop social icons */}
+            <div className="hidden items-center gap-3.5 lg:flex xl:gap-4">
+              {socialLinks.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="text-bone/50 transition-colors duration-300 hover:text-bone"
+                >
+                  <BrandIcon name={s.icon} size={15} />
+                </a>
+              ))}
+            </div>
+
             <div className="hidden lg:block">
               <KollabDice compact />
             </div>
@@ -119,10 +137,7 @@ function MobileMenu({
   }[] = [
     { label: 'KORNER', href: '#top', big: true },
     ...NAV,
-    { label: 'INSTAGRAM', href: 'https://instagram.com' },
-    { label: 'TIKTOK', href: 'https://tiktok.com' },
-    { label: 'YOUTUBE', href: 'https://youtube.com' },
-    { label: 'SPOTIFY', href: 'https://open.spotify.com' },
+    ...socialLinks.map((s) => ({ label: s.label.toUpperCase(), href: s.url })),
   ];
 
   return (
