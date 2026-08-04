@@ -204,13 +204,13 @@ function PhotoTile({ photo, className, aspect, onClick, onEnter, onLeave, reduce
 
         {/* Metadata — bottom left, padded away from edges */}
         <div className="absolute bottom-0 left-0 p-4 sm:p-5">
-          <p className="font-nemoy-thin text-[21px] uppercase tracking-ultra text-bone/90 sm:text-[22px]">
+          <p className="font-nemoy-thin text-[36px] uppercase tracking-ultra text-bone/90 sm:text-[37px]">
             {photo.title}
           </p>
-          <p className="mt-1.5 font-nemoy-thin text-[21px] uppercase leading-relaxed tracking-wide text-bone/70 sm:text-[24px]">
+          <p className="mt-1.5 font-nemoy-thin text-[36px] uppercase leading-relaxed tracking-wide text-bone/70 sm:text-[39px]">
             {photo.location}{photo.location && photo.date ? ' · ' : ''}{photo.date}
           </p>
-          <p className="mt-1 font-nemoy-thin text-[21px] leading-relaxed text-bone/70 sm:text-[25px]">
+          <p className="mt-1 font-nemoy-thin text-[36px] leading-relaxed text-bone/70 sm:text-[40px]">
             {photo.caption}
           </p>
         </div>
@@ -218,7 +218,7 @@ function PhotoTile({ photo, className, aspect, onClick, onEnter, onLeave, reduce
         {/* Download badge */}
         {photo.downloadable && (
           <div className="absolute right-4 top-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            <span className="border border-bone/30 bg-ink/50 px-2.5 py-1.5 font-nemoy-thin text-[20px] uppercase tracking-ultra text-bone backdrop-blur-sm sm:text-[21px]">
+            <span className="border border-bone/30 bg-ink/50 px-2.5 py-1.5 font-nemoy-thin text-[35px] uppercase tracking-ultra text-bone backdrop-blur-sm sm:text-[36px]">
               FREE DOWNLOAD
             </span>
           </div>
