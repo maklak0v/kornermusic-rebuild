@@ -5,6 +5,8 @@ import { useScrolled } from '@/hooks/useUi';
 import { KollabDice } from '@/components/KollabDice';
 import { HeaderLinksDropdown, MobileLinksAccordion } from '@/components/HeaderLinksDropdown';
 
+const CONTACT_EMAIL = 'd.mo7oko@gmail.com';
+
 const NAV = [
   { label: 'STORY', href: '#story' },
   { label: 'MUSIC', href: '#music' },
@@ -78,6 +80,13 @@ export function Header() {
 
             {/* LINKS dropdown */}
             <HeaderLinksDropdown />
+
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="font-nemoy-thin text-[16px] uppercase tracking-[0.22em] text-bone/80 transition-colors duration-300 hover:text-bone xl:text-[17px]"
+            >
+              CONTACT
+            </a>
           </nav>
 
           {/* Kollab logo and mobile menu */}
@@ -120,9 +129,11 @@ function MobileMenu({
     label: string;
     href: string;
     big?: boolean;
+    mailto?: boolean;
   }[] = [
     { label: 'KORNER', href: '#top', big: true },
     ...NAV,
+    { label: 'CONTACT', href: `mailto:${CONTACT_EMAIL}`, mailto: true },
   ];
 
   return (
