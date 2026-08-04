@@ -98,9 +98,9 @@ export function PhotoArchive() {
           reduced={reduced}
         />
 
-        {/* Row 4 — editorial four-frame group:
-            FRAME_007 largest left anchor · FRAME_008 medium vertical
-            FRAME_009 narrow with breathing room · FRAME_010 slightly wider,
+        {/* Row 4 — editorial three-frame group:
+            FRAME_007 largest left anchor · FRAME_008 narrow with breathing room
+            FRAME_009 slightly wider (rotated 90°),
             with subtle vertical offsets for a cinematic, asymmetrical rhythm */}
 
         {/* frame_007 — largest primary image, left anchor */}
@@ -114,47 +114,35 @@ export function PhotoArchive() {
           reduced={reduced}
         />
 
-        {/* frame_008 — medium landscape (rotated 90°), flush top beside the anchor */}
+        {/* frame_008 — narrow, dropped down for breathing room */}
         <PhotoTile
           photo={photos[7]}
-          className="col-span-6 md:col-span-3 sm:col-span-6 mt-6 md:mt-6"
-          aspect="aspect-[4/3]"
-          rotate90
+          className="col-span-6 md:col-span-3 sm:col-span-6 mt-6 md:mt-16"
+          aspect="aspect-[3/4]"
           onClick={() => openLightbox(7)}
           onEnter={onPhotoEnter}
           onLeave={onPhotoLeave}
           reduced={reduced}
         />
 
-        {/* frame_009 — narrow, dropped down for breathing room */}
+        {/* frame_009 — slightly wider than 008 (rotated 90°), flush top */}
         <PhotoTile
           photo={photos[8]}
-          className="col-span-6 md:col-span-2 sm:col-span-6 mt-6 md:mt-24"
-          aspect="aspect-[3/4]"
+          className="col-span-12 md:col-span-4 sm:col-span-12 mt-6 md:mt-6"
+          aspect="aspect-[4/3]"
+          rotate90
           onClick={() => openLightbox(8)}
           onEnter={onPhotoEnter}
           onLeave={onPhotoLeave}
           reduced={reduced}
         />
 
-        {/* frame_010 — slightly wider than 009 (rotated 90°), flush top */}
+        {/* Row 5: frame_010 — full-width cinematic finale */}
         <PhotoTile
           photo={photos[9]}
-          className="col-span-12 md:col-span-3 sm:col-span-12 mt-6 md:mt-6"
-          aspect="aspect-[4/3]"
-          rotate90
-          onClick={() => openLightbox(9)}
-          onEnter={onPhotoEnter}
-          onLeave={onPhotoLeave}
-          reduced={reduced}
-        />
-
-        {/* Row 5: frame_011 — full-width cinematic finale */}
-        <PhotoTile
-          photo={photos[10]}
           className="col-span-12 mt-16"
           aspect="aspect-[21/9]"
-          onClick={() => openLightbox(10)}
+          onClick={() => openLightbox(9)}
           onEnter={onPhotoEnter}
           onLeave={onPhotoLeave}
           reduced={reduced}
