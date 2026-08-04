@@ -126,11 +126,12 @@ export function PhotoArchive() {
         />
 
         {/* frame_009 — full-width cinematic frame below the group,
-            shown at its natural 4:3 aspect ratio with no rotation or crop */}
+            rotated 90° so the sideways portrait stands upright */}
         <PhotoTile
           photo={photos[8]}
           className="col-span-12 mt-16"
-          aspect="aspect-[4/3]"
+          aspect="aspect-[3/4]"
+          rotate90
           onClick={() => openLightbox(8)}
           onEnter={onPhotoEnter}
           onLeave={onPhotoLeave}
@@ -198,7 +199,7 @@ function PhotoTile({ photo, className, aspect, onClick, onEnter, onLeave, reduce
           src={photo.src}
           alt={photo.caption}
           loading="lazy"
-          className={`h-full w-full object-cover grayscale-[20%] transition-all duration-700 group-hover:grayscale-0 ${rotate90 ? 'rotate-90 scale-[1.34] group-hover:scale-[1.4]' : 'group-hover:scale-105'}`}
+          className={`h-full w-full object-cover grayscale-[20%] transition-all duration-700 group-hover:grayscale-0 ${rotate90 ? 'rotate-90 scale-150 group-hover:scale-[1.58]' : 'group-hover:scale-105'}`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent opacity-70 transition-opacity group-hover:opacity-90" />
 
