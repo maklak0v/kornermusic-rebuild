@@ -98,12 +98,15 @@ export function PhotoArchive() {
           reduced={reduced}
         />
 
-        {/* Row 4: frame_007 portrait (left anchor) + three new frames to the right */}
+        {/* Row 4 — editorial four-frame group:
+            FRAME_007 largest left anchor · FRAME_008 medium vertical
+            FRAME_009 narrow with breathing room · FRAME_010 slightly wider,
+            with subtle vertical offsets for a cinematic, asymmetrical rhythm */}
 
-        {/* frame_007 — tall portrait, left anchor */}
+        {/* frame_007 — largest primary image, left anchor */}
         <PhotoTile
           photo={photos[6]}
-          className="col-span-12 sm:col-span-4 mt-4"
+          className="col-span-12 md:col-span-5 sm:col-span-6 mt-6"
           aspect="aspect-[3/4]"
           onClick={() => openLightbox(6)}
           onEnter={onPhotoEnter}
@@ -111,10 +114,10 @@ export function PhotoArchive() {
           reduced={reduced}
         />
 
-        {/* frame_008 — winter silhouette portrait, flush top */}
+        {/* frame_008 — medium vertical, flush top beside the anchor */}
         <PhotoTile
           photo={photos[7]}
-          className="col-span-6 sm:col-span-3 mt-4"
+          className="col-span-6 md:col-span-3 sm:col-span-6 mt-6 md:mt-6"
           aspect="aspect-[3/4]"
           onClick={() => openLightbox(7)}
           onEnter={onPhotoEnter}
@@ -122,10 +125,10 @@ export function PhotoArchive() {
           reduced={reduced}
         />
 
-        {/* frame_009 — ink study portrait, dropped down */}
+        {/* frame_009 — narrow, dropped down for breathing room */}
         <PhotoTile
           photo={photos[8]}
-          className="col-span-6 sm:col-span-2 mt-4 sm:mt-20"
+          className="col-span-6 md:col-span-2 sm:col-span-6 mt-6 md:mt-24"
           aspect="aspect-[3/4]"
           onClick={() => openLightbox(8)}
           onEnter={onPhotoEnter}
@@ -133,10 +136,10 @@ export function PhotoArchive() {
           reduced={reduced}
         />
 
-        {/* frame_010 — greenhouse portrait, flush top, wider */}
+        {/* frame_010 — slightly wider than 009, flush top */}
         <PhotoTile
           photo={photos[9]}
-          className="col-span-12 sm:col-span-3 mt-4"
+          className="col-span-12 md:col-span-2 sm:col-span-12 mt-6 md:mt-6"
           aspect="aspect-[3/4]"
           onClick={() => openLightbox(9)}
           onEnter={onPhotoEnter}
@@ -208,20 +211,23 @@ function PhotoTile({ photo, className, aspect, onClick, onEnter, onLeave, reduce
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent opacity-70 transition-opacity group-hover:opacity-90" />
 
-        {/* Metadata — bottom left */}
-        <div className="absolute bottom-0 left-0 p-3 sm:p-4">
-          <p className="font-nemoy-thin text-[8px] uppercase tracking-ultra text-bone/80 sm:text-[9px]">
+        {/* Metadata — bottom left, padded away from edges */}
+        <div className="absolute bottom-0 left-0 p-4 sm:p-5">
+          <p className="font-nemoy-thin text-[11px] uppercase tracking-ultra text-bone/90 sm:text-[12px]">
             {photo.title}
           </p>
-          <p className="mt-0.5 font-nemoy-thin text-[7px] uppercase tracking-wide text-bone/50 sm:text-[8px]">
+          <p className="mt-1.5 font-nemoy-thin text-[11px] uppercase leading-relaxed tracking-wide text-bone/70 sm:text-[14px]">
             {photo.location}{photo.location && photo.date ? ' · ' : ''}{photo.date}
+          </p>
+          <p className="mt-1 font-nemoy-thin text-[11px] leading-relaxed text-bone/70 sm:text-[15px]">
+            {photo.caption}
           </p>
         </div>
 
         {/* Download badge */}
         {photo.downloadable && (
-          <div className="absolute right-3 top-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            <span className="border border-bone/30 bg-ink/50 px-2 py-1 font-nemoy-thin text-[7px] uppercase tracking-ultra text-bone backdrop-blur-sm">
+          <div className="absolute right-4 top-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <span className="border border-bone/30 bg-ink/50 px-2.5 py-1.5 font-nemoy-thin text-[10px] uppercase tracking-ultra text-bone backdrop-blur-sm sm:text-[11px]">
               FREE DOWNLOAD
             </span>
           </div>
