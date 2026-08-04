@@ -67,14 +67,14 @@ export function PhotoLightbox({ photo, onClose, onPrev, onNext }: PhotoLightboxP
 
             {/* Metadata bar */}
             <div className="mt-5 flex w-full flex-col items-start gap-4 sm:flex-row sm:items-end sm:justify-between">
-              <div className="flex flex-col gap-1">
-                <span className="font-nemoy-thin text-[22px] uppercase tracking-ultra text-ash">
+              <div className="flex flex-col gap-1 text-left">
+                <span className="font-nemoy-thin text-[17px] uppercase tracking-ultra text-ash">
                   {photo.title} · {photo.date}
                 </span>
-                <span className="font-nemoy-thin text-[24px] text-bone/70">
+                <span className="font-nemoy-thin text-[19px] text-bone/70">
                   {photo.caption}
                 </span>
-                <span className="font-nemoy-thin text-[20px] uppercase tracking-ultra text-ash">
+                <span className="font-nemoy-thin text-[15px] uppercase tracking-ultra text-ash">
                   {photo.location} · {photo.photographer} · {photo.resolution}
                 </span>
               </div>

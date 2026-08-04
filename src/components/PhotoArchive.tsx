@@ -203,14 +203,14 @@ function PhotoTile({ photo, className, aspect, onClick, onEnter, onLeave, reduce
         <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent opacity-70 transition-opacity group-hover:opacity-90" />
 
         {/* Metadata — bottom left, padded away from edges */}
-        <div className="absolute bottom-0 left-0 p-4 sm:p-5">
-          <p className="font-nemoy-thin text-[26px] uppercase tracking-ultra text-bone/90 sm:text-[28px]">
+        <div className="absolute bottom-0 left-0 p-4 sm:p-5 text-left">
+          <p className="font-nemoy-thin text-[21px] uppercase tracking-ultra text-bone/90 sm:text-[23px]">
             {photo.title}
           </p>
-          <p className="mt-1.5 font-nemoy-thin text-[24px] uppercase leading-relaxed tracking-wide text-bone/70 sm:text-[26px]">
+          <p className="mt-1.5 font-nemoy-thin text-[19px] uppercase leading-relaxed tracking-wide text-bone/70 sm:text-[21px]">
             {photo.location}{photo.location && photo.date ? ' · ' : ''}{photo.date}
           </p>
-          <p className="mt-1 font-nemoy-thin text-[24px] leading-relaxed text-bone/70 sm:text-[27px]">
+          <p className="mt-1 font-nemoy-thin text-[19px] leading-relaxed text-bone/70 sm:text-[22px]">
             {photo.caption}
           </p>
         </div>
@@ -218,7 +218,7 @@ function PhotoTile({ photo, className, aspect, onClick, onEnter, onLeave, reduce
         {/* Download badge */}
         {photo.downloadable && (
           <div className="absolute right-4 top-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            <span className="border border-bone/30 bg-ink/50 px-2.5 py-1.5 font-nemoy-thin text-[24px] uppercase tracking-ultra text-bone backdrop-blur-sm sm:text-[25px]">
+            <span className="border border-bone/30 bg-ink/50 px-2.5 py-1.5 font-nemoy-thin text-[19px] uppercase tracking-ultra text-bone backdrop-blur-sm sm:text-[20px]">
               FREE DOWNLOAD
             </span>
           </div>
