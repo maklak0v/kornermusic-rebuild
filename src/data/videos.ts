@@ -17,9 +17,26 @@ export interface VideoItem {
   thumbnail: string;
   featuredImage: string;
   youtubeUrl: string;
+  unavailable?: boolean;
+  statusText?: string;
 }
 
 export const videos: VideoItem[] = [
+  {
+    id: 'beta-001',
+    title: 'beta_0.01',
+    beta: 'beta_0.01',
+    category: 'FILM',
+    date: '2025.09.01',
+    duration: '—:—',
+    description: 'This version was banned and will be reworked later.',
+    quote: 'banned :/',
+    thumbnail: '/images/image copy copy.png',
+    featuredImage: '/images/image copy copy.png',
+    youtubeUrl: '',
+    unavailable: true,
+    statusText: 'BANNED :/',
+  },
   {
     id: 'beta-005',
     title: 'de_piano',

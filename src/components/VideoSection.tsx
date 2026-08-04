@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { Play, ArrowLeft, ArrowRight } from 'lucide-react';
+import { Play, ArrowLeft, ArrowRight, Ban } from 'lucide-react';
 import { videos, type VideoItem } from '@/data/videos';
 import { SectionLabel, FadeIn } from '@/components/SectionLabel';
 import { useCursor } from '@/components/CustomCursor';
@@ -111,29 +111,33 @@ export function VideoSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={reduced ? {} : { opacity: 0, y: -24 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            onClick={() => openYoutube(active.youtubeUrl)}
-            onMouseEnter={onVideoEnter}
-            onMouseLeave={onVideoLeave}
+            onClick={active.unavailable ? undefined : () => openYoutube(active.youtubeUrl)}
+            onMouseEnter={active.unavailable ? undefined : onVideoEnter}
+            onMouseLeave={active.unavailable ? undefined : onVideoLeave}
             className="group relative block w-full overflow-hidden"
           >
             <div className="relative aspect-[16/9] w-full overflow-hidden bg-ink-800 sm:aspect-[21/9]">
               <img
                 src={active.featuredImage}
                 alt={active.title}
-                className="h-full w-full object-cover grayscale-[40%] transition-all duration-[1.2s] group-hover:grayscale-0 group-hover:scale-105"
+                className={`h-full w-full object-cover grayscale-[40%] transition-all duration-[1.2s] ${active.unavailable ? 'grayscale' : 'group-hover:grayscale-0 group-hover:scale-105'}`}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-ink/30" />
 
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full border border-bone/30 backdrop-blur-sm transition-all duration-500 group-hover:scale-110 group-hover:border-bone/60 sm:h-20 sm:w-20">
-                  <Play size={20} className="ml-1 text-bone" strokeWidth={1.5} />
+                <div className={`flex h-16 w-16 items-center justify-center rounded-full border backdrop-blur-sm transition-all duration-500 sm:h-20 sm:w-20 ${active.unavailable ? 'border-bone/15 opacity-50' : 'border-bone/30 group-hover:scale-110 group-hover:border-bone/60'}`}>
+                  {active.unavailable ? (
+                    <span className="font-nemoy-thin text-[7px] uppercase tracking-ultra text-bone/40">UNAVAILABLE</span>
+                  ) : (
+                    <Play size={20} className="ml-1 text-bone" strokeWidth={1.5} />
+                  )}
                 </div>
               </div>
 
               <div className="absolute bottom-0 left-0 flex w-full flex-col gap-2 p-5 sm:p-8">
                 <div className="flex items-center gap-3">
-                  <span className="border border-bone/30 px-2 py-0.5 font-nemoy-thin text-[8px] uppercase tracking-ultra text-bone">
-                    {active.category}
+                  <span className={`border px-2 py-0.5 font-nemoy-thin text-[8px] uppercase tracking-ultra ${active.unavailable ? 'border-ember/40 text-ember/80' : 'border-bone/30 text-bone'}`}>
+                    {active.unavailable ? (active.statusText ?? 'UNAVAILABLE') : active.category}
                   </span>
                   <span className="font-nemoy-thin text-[9px] uppercase tracking-ultra text-bone/60">
                     {active.beta} · {active.duration}
@@ -279,8 +283,12 @@ function ThumbnailCard({
 
         {active && (
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full border border-bone/50 backdrop-blur-sm">
-              <Play size={16} className="ml-0.5 text-bone" strokeWidth={1.5} />
+            <div className={`flex h-12 w-12 items-center justify-center rounded-full border backdrop-blur-sm ${video.unavailable ? 'border-bone/15' : 'border-bone/50'}`}>
+              {video.unavailable ? (
+                <Ban size={16} className="text-bone/40" strokeWidth={1.5} />
+              ) : (
+                <Play size={16} className="ml-0.5 text-bone" strokeWidth={1.5} />
+              )}
             </div>
           </div>
         )}
