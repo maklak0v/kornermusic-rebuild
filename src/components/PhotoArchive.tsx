@@ -198,7 +198,7 @@ function PhotoTile({ photo, className, aspect, onClick, onEnter, onLeave, reduce
           src={photo.src}
           alt={photo.caption}
           loading="lazy"
-          className={`h-full w-full object-cover grayscale-[20%] transition-all duration-700 group-hover:grayscale-0 ${rotate90 ? 'rotate-90 scale-[1.34] group-hover:scale-[1.4]' : 'group-hover:scale-105'}`}
+          className={`h-full w-full object-cover grayscale-[20%] transition-all duration-700 group-hover:grayscale-0 ${rotate90 ? 'rotate-90 scale-150 group-hover:scale-[1.58]' : 'group-hover:scale-105'}`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent opacity-70 transition-opacity group-hover:opacity-90" />
 
