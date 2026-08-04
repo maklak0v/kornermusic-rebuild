@@ -9,11 +9,7 @@ import { useReducedMotion } from '@/hooks/useUi';
 
 const FINAL_IMG = 'https://images.pexels.com/photos/9694198/pexels-photo-9694198.jpeg?auto=compress&cs=tinysrgb&w=1800';
 
-const CONTACT = [
-  { label: 'BOOKING', email: 'booking@korner.fm' },
-  { label: 'COLLABORATION', email: 'collab@korner.fm' },
-  { label: 'PRESS', email: 'press@korner.fm' },
-];
+const CONTACT_EMAIL = 'd.mo7oko@gmail.com';
 
 export function Footer() {
   const ref = useRef<HTMLElement>(null);
@@ -114,25 +110,15 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <p className="font-nemoy-thin text-[10px] uppercase tracking-ultra text-ash">
+            <p className="font-nemoy-thin text-xs uppercase tracking-ultra text-ash">
               CONTACT
             </p>
-            <div className="mt-4 flex flex-col gap-3">
-              {CONTACT.map((c) => (
-                <a
-                  key={c.label}
-                  href={`mailto:${c.email}`}
-                  className="group flex flex-col"
-                >
-                  <span className="font-nemoy-thin text-[9px] uppercase tracking-ultra text-ash">
-                    {c.label}
-                  </span>
-                  <span className="font-nemoy-thin text-sm text-bone/60 transition-colors group-hover:text-bone">
-                    {c.email}
-                  </span>
-                </a>
-              ))}
-            </div>
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="mt-4 inline-block border border-bone/30 px-5 py-2.5 font-nemoy-thin text-[11px] uppercase tracking-ultra text-bone transition-all hover:bg-bone hover:text-ink"
+            >
+              d.mo7oko@gmail.com
+            </a>
           </div>
         </div>
 
