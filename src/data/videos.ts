@@ -35,6 +35,20 @@ export const videos: VideoItem[] = [
     youtubeUrl: 'https://www.youtube.com/watch?v=asywxoK5l3k',
   },
   {
+    id: 'beta-002',
+    title: 'Powder',
+    beta: 'beta_0.02',
+    category: 'FILM',
+    date: '2025.10.21',
+    duration: '45:42',
+    description:
+      'A short film. A figure walks away from the city until the sound fades. Original score by KORNER.',
+    quote: 'walk until the sound fades',
+    thumbnail: '/images/image.png',
+    featuredImage: '/images/image.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=dYEKZzdu5Xw',
+  },
+  {
     id: 'beta-003',
     title: 'マキシム',
     beta: 'beta_0.03',
