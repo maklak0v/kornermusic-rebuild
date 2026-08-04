@@ -115,7 +115,7 @@ export function Footer() {
             </p>
             <a
               href={`mailto:${CONTACT_EMAIL}`}
-              className="mt-4 inline-block border border-bone/30 px-5 py-2.5 font-nemoy-thin text-[11px] uppercase tracking-ultra text-bone transition-all hover:bg-bone hover:text-ink"
+              className="mt-4 block font-nemoy-thin text-sm text-bone/60 transition-colors hover:text-bone"
             >
               d.mo7oko@gmail.com
             </a>
