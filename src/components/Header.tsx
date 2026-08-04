@@ -3,8 +3,7 @@ import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { useScrolled } from '@/hooks/useUi';
 import { KollabDice } from '@/components/KollabDice';
-import { BrandIcon } from '@/components/BrandIcons';
-import { socialLinks } from '@/data/social';
+import { HeaderLinksDropdown, MobileLinksAccordion } from '@/components/HeaderLinksDropdown';
 
 const NAV = [
   { label: 'STORY', href: '#story' },
@@ -76,26 +75,13 @@ export function Header() {
                 {item.label}
               </a>
             ))}
+
+            {/* LINKS dropdown */}
+            <HeaderLinksDropdown />
           </nav>
 
           {/* Kollab logo and mobile menu */}
-          <div className="flex items-center gap-3 lg:gap-5">
-            {/* Desktop social icons */}
-            <div className="hidden items-center gap-3.5 lg:flex xl:gap-4">
-              {socialLinks.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="text-bone/50 transition-colors duration-300 hover:text-bone"
-                >
-                  <BrandIcon name={s.icon} size={18} />
-                </a>
-              ))}
-            </div>
-
+          <div className="flex items-center gap-5 lg:gap-8">
             <div className="hidden lg:block">
               <KollabDice compact />
             </div>
@@ -137,7 +123,6 @@ function MobileMenu({
   }[] = [
     { label: 'KORNER', href: '#top', big: true },
     ...NAV,
-    ...socialLinks.map((s) => ({ label: s.label.toUpperCase(), href: s.url })),
   ];
 
   return (
@@ -167,7 +152,7 @@ function MobileMenu({
           </div>
 
           {/* Mobile navigation */}
-          <nav className="flex flex-1 flex-col justify-center gap-3 px-6">
+          <nav className="flex flex-1 flex-col justify-center gap-3 overflow-y-auto px-6 pb-8">
             {items.map((item, index) => (
               <motion.a
                 key={`${item.label}-${item.href}`}
@@ -199,13 +184,26 @@ function MobileMenu({
               </motion.a>
             ))}
 
+            {/* LINKS accordion */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.55,
+                delay: 0.08 + items.length * 0.05,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+            >
+              <MobileLinksAccordion />
+            </motion.div>
+
             <motion.div
               key="kollab-dice"
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
                 duration: 0.55,
-                delay: 0.08 + items.length * 0.05,
+                delay: 0.08 + (items.length + 1) * 0.05,
                 ease: [0.16, 1, 0.3, 1],
               }}
               className="mt-4 flex justify-center"
