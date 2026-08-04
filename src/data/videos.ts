@@ -61,4 +61,17 @@ export const videos: VideoItem[] = [
     featuredImage: '/images/image copy.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=dYEKZzdu5Xw',
   },
+  {
+    id: 'beta-005',
+    title: 'de_piano',
+    beta: 'beta_0.05',
+    category: 'FILM',
+    date: '2026.02.01',
+    duration: '04:15',
+    description: 'A story told through piano, rhythm, and emotion.',
+    quote: 'a story told through piano',
+    thumbnail: '/images/de-piano-Ready copy.png',
+    featuredImage: '/images/de-piano-Ready copy.png',
+    youtubeUrl: 'https://youtu.be/yKVaREFRA70',
+  },
 ];
