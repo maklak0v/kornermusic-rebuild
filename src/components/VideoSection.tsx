@@ -1,14 +1,22 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Play, ArrowRight } from 'lucide-react';
 import { videos, type VideoItem } from '@/data/videos';
 import { SectionLabel, FadeIn } from '@/components/SectionLabel';
-import { VideoPlayer } from '@/components/VideoPlayer';
 import { useCursor } from '@/components/CustomCursor';
 import { useReducedMotion } from '@/hooks/useUi';
 
+function youtubeId(url: string): string {
+  const match = url.match(/embed\/([^?]+)/);
+  return match ? match[1] : '';
+}
+
+function openOnYoutube(video: VideoItem) {
+  const id = youtubeId(video.videoUrl);
+  if (id) window.open(`https://youtu.be/${id}`, '_blank');
+}
+
 export function VideoSection() {
-  const [activeVideo, setActiveVideo] = useState<VideoItem | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const cursor = useCursor();
   const reduced = useReducedMotion();
@@ -53,7 +61,7 @@ export function VideoSection() {
           whileInView={reduced ? {} : { opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          onClick={() => setActiveVideo(featured)}
+          onClick={() => openOnYoutube(featured)}
           onMouseEnter={onVideoEnter}
           onMouseLeave={onVideoLeave}
           className="group relative block w-full overflow-hidden"
@@ -101,7 +109,7 @@ export function VideoSection() {
             key={video.id}
             video={video}
             index={i}
-            onClick={() => setActiveVideo(video)}
+            onClick={() => openOnYoutube(video)}
             onEnter={onVideoEnter}
             onLeave={onVideoLeave}
             reduced={reduced}
@@ -109,7 +117,6 @@ export function VideoSection() {
         ))}
       </div>
 
-      <VideoPlayer video={activeVideo} onClose={() => setActiveVideo(null)} />
     </section>
   );
 }
