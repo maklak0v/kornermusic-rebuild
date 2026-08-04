@@ -17,7 +17,7 @@ export interface Photo {
 export const photos: Photo[] = [
   {
     id: 'frame_001',
-    src: 'https://images.pexels.com/photos/20861860/pexels-photo-20861860.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    src: '/images/art/Korner-Mountain-03.jpg',
     title: 'frame_001',
     date: '2025',
     location: 'Moro Rock',
