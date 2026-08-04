@@ -53,11 +53,6 @@ export function Footer() {
               the beginning.
             </h2>
           </FadeIn>
-          <FadeIn delay={0.3}>
-            <p className="mt-6 font-nemoy-thin text-sm tracking-wide text-bone/40">
-              the next transmission is already being created.
-            </p>
-          </FadeIn>
           <FadeIn delay={0.45}>
             <p className="mt-10 font-nemoy-thin text-[30px] uppercase tracking-ultra text-ash">
               music for the moments that stay with you.
