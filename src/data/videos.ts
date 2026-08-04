@@ -14,12 +14,12 @@ export interface VideoItem {
 export const videos: VideoItem[] = [
   {
     id: 'beta-004',
-    title: 'IKON',
+    title: 'マキシム',
     beta: 'beta_0.03',
     category: 'ORIGINAL MUSIC',
     date: '2026.01.18',
     duration: '03:42',
-    description: 'The official visualizer for IKON. Shot on a single hand-held camera through the streets of downtown LA after midnight.',
+    description: 'The official visualizer for マキシム. Shot on a single hand-held camera through the streets of downtown LA after midnight.',
     thumbnail: '/images/image.png',
     videoUrl: 'https://www.youtube.com/embed/asywxoK5l3k?rel=0&modestbranding=1',
     featured: true,
