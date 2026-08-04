@@ -42,7 +42,7 @@ export function Footer() {
       <div className="relative flex min-h-[60vh] flex-col items-center justify-center px-5 text-center">
         <motion.div style={reduced ? {} : { y: textY }}>
           <FadeIn>
-            <p className="font-nemoy-thin text-[11px] uppercase tracking-extreme text-ash">
+            <p className="font-nemoy-thin text-[21px] uppercase tracking-extreme text-ash">
               06 — END
             </p>
           </FadeIn>
