@@ -30,7 +30,7 @@ export const releases: Release[] = [
     version: 'beta_0.04',
     year: '2026',
     bpm: '128',
-    duration: '04:04',
+    duration: '0:09',
     status: 'released',
     artwork: asset('/images/IMG_7210_(IKON).webp'),
     backdropImage: asset('/images/youtube_(IKON).webp'),
