@@ -22,7 +22,7 @@ export interface VideoItem {
 export const videos: VideoItem[] = [
   {
     id: 'beta-004',
-    title: 'マキシム',
+    title: 'IKON',
     beta: 'beta_0.04',
     category: 'ORIGINAL MUSIC',
     date: '2026.01.18',
