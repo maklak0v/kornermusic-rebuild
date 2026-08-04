@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import type { Release } from '@/data/releases';
 
@@ -17,6 +17,21 @@ export function ReleasePlayer({ release }: ReleasePlayerProps) {
   const rafRef = useRef<number>(0);
 
   const playingRef = useRef(false);
+  const seekingRef = useRef(false);
+  const wasPlayingRef = useRef(false);
+  const waveformRef = useRef<HTMLDivElement | null>(null);
+
+  const startRaf = useCallback(() => {
+    const update = () => {
+      const audio = audioRef.current;
+      if (!audio || !playingRef.current || seekingRef.current) return;
+      setCurrent(audio.currentTime);
+      setProgress((audio.currentTime / (audio.duration || 1)) * 100);
+      rafRef.current = requestAnimationFrame(update);
+    };
+    cancelAnimationFrame(rafRef.current);
+    update();
+  }, []);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -31,24 +46,21 @@ export function ReleasePlayer({ release }: ReleasePlayerProps) {
       cancelAnimationFrame(rafRef.current);
     };
     const onPause = () => {
+      if (seekingRef.current) return;
       playingRef.current = false;
       setPlaying(false);
       cancelAnimationFrame(rafRef.current);
     };
     const onPlay = () => {
+      if (seekingRef.current) return;
       playingRef.current = true;
       setPlaying(true);
-      const update = () => {
-        if (!audioRef.current || !playingRef.current) return;
-        setCurrent(audioRef.current.currentTime);
-        setProgress((audioRef.current.currentTime / (audioRef.current.duration || 1)) * 100);
-        rafRef.current = requestAnimationFrame(update);
-      };
-      cancelAnimationFrame(rafRef.current);
-      update();
+      startRaf();
     };
     const onSeeked = () => {
-      if (playingRef.current) {
+      if (seekingRef.current) return;
+      if (wasPlayingRef.current) {
+        wasPlayingRef.current = false;
         audio.play().catch(() => {});
       }
     };
@@ -67,7 +79,7 @@ export function ReleasePlayer({ release }: ReleasePlayerProps) {
       audio.removeEventListener('seeked', onSeeked);
       cancelAnimationFrame(rafRef.current);
     };
-  }, [release.previewAudio]);
+  }, [release.previewAudio, startRaf]);
 
   const togglePlay = () => {
     const audio = audioRef.current;
@@ -86,14 +98,51 @@ export function ReleasePlayer({ release }: ReleasePlayerProps) {
     setMuted(audio.muted);
   };
 
-  const onSeek = (e: React.MouseEvent<HTMLDivElement>) => {
+  const seekTo = useCallback((clientX: number) => {
     const audio = audioRef.current;
-    if (!audio || !duration) return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    const pct = (e.clientX - rect.left) / rect.width;
+    const el = waveformRef.current;
+    if (!audio || !el || !duration) return;
+    const rect = el.getBoundingClientRect();
+    const pct = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
     audio.currentTime = pct * duration;
     setProgress(pct * 100);
     setCurrent(pct * duration);
+  }, [duration]);
+
+  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    const audio = audioRef.current;
+    if (!audio || !duration) return;
+    e.currentTarget.setPointerCapture(e.pointerId);
+    seekingRef.current = true;
+    wasPlayingRef.current = playingRef.current;
+    audio.pause();
+    seekTo(e.clientX);
+  };
+
+  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!seekingRef.current) return;
+    seekTo(e.clientX);
+  };
+
+  const onPointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!seekingRef.current) return;
+    e.currentTarget.releasePointerCapture(e.pointerId);
+    seekingRef.current = false;
+    if (wasPlayingRef.current) {
+      audioRef.current?.play().catch(() => {});
+    }
+  };
+
+  const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    const audio = audioRef.current;
+    if (!audio || !duration) return;
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      audio.currentTime = Math.max(0, audio.currentTime - 5);
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      audio.currentTime = Math.min(duration, audio.currentTime + 5);
+    }
   };
 
   const onVolume = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -113,7 +162,6 @@ export function ReleasePlayer({ release }: ReleasePlayerProps) {
     return `${m}:${sec.toString().padStart(2, '0')}`;
   };
 
-  // Generate waveform bars (deterministic, pseudo-random based on id)
   const bars = Array.from({ length: 48 }, (_, i) => {
     const seed = release.id.charCodeAt(0) + i;
     return 20 + ((seed * 37) % 60);
@@ -128,8 +176,18 @@ export function ReleasePlayer({ release }: ReleasePlayerProps) {
       {/* Waveform / progress */}
       <div className="group relative">
         <div
-          onClick={onSeek}
-          className="flex h-12 cursor-pointer items-center gap-[2px] overflow-hidden"
+          ref={waveformRef}
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={onPointerUp}
+          onKeyDown={onKeyDown}
+          tabIndex={0}
+          role="slider"
+          aria-label="Seek"
+          aria-valuemin={0}
+          aria-valuemax={Math.floor(duration)}
+          aria-valuenow={Math.floor(current)}
+          className="flex h-12 cursor-pointer items-center gap-[2px] overflow-hidden outline-none focus-visible:ring-1 focus-visible:ring-bone/30"
         >
           {bars.map((h, i) => {
             const active = (i / bars.length) * 100 <= progress;
