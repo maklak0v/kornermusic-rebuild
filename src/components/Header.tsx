@@ -9,7 +9,7 @@ const NAV = [
   { label: 'MUSIC', href: '#music' },
   { label: 'MERCH', href: '#merch' },
   { label: 'ART', href: '#photos' },
-  { label: 'THE FILM', href: '#video' },
+  { label: 'FILM', href: '#video' },
 ];
 
 export function Header() {
