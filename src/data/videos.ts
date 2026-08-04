@@ -26,13 +26,13 @@ export const videos: VideoItem[] = [
     beta: 'beta_0.04',
     category: 'ORIGINAL MUSIC',
     date: '2026.01.18',
-    duration: '03:42',
+    duration: '04:04',
     description:
       'The official visualizer for マキシム. Shot on a single hand-held camera through the streets of downtown LA after midnight.',
     quote: 'a city is just a room with no ceiling',
     thumbnail: '/images/IMG_7210_(IKON).png',
     featuredImage: '/images/IMG_7210_(IKON).png',
-    youtubeUrl: 'https://www.youtube.com/watch?v=asywxoK5l3k',
+    youtubeUrl: 'https://youtu.be/WJQwWbsxb-k?si=5PLwrWw6vA_8KNXF',
   },
   {
     id: 'beta-002',
