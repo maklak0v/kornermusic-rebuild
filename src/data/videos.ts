@@ -42,10 +42,10 @@ export const videos: VideoItem[] = [
     date: '2025.10.21',
     duration: '45:42',
     description:
-      'A short film. A figure walks away from the city until the sound fades. Original score by KORNER.',
-    quote: 'walk until the sound fades',
-    thumbnail: '/images/image.png',
-    featuredImage: '/images/image.png',
+      'Filmed at home. One room, one screen, one session. No stage, no crowd — just the work.',
+    quote: 'filmed at home',
+    thumbnail: '/images/image copy.png',
+    featuredImage: '/images/image copy.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=dYEKZzdu5Xw',
   },
   {
