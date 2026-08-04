@@ -120,7 +120,7 @@ export const photos: Photo[] = [
     date: '',
     location: '',
     photographer: 'shot by KORNER',
-    caption: 'ink study · owl & lion',
+    caption: 'pure love',
     orientation: 'portrait',
     featured: false,
     downloadable: false,
