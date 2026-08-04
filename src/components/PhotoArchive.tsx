@@ -129,7 +129,7 @@ export function PhotoArchive() {
             rotated 90° so the sideways portrait stands upright */}
         <PhotoTile
           photo={photos[8]}
-          className="col-span-12 mt-16"
+          className="col-span-12 md:col-span-6 md:col-start-4 mt-16"
           aspect="aspect-[3/4]"
           rotate90
           onClick={() => openLightbox(8)}
