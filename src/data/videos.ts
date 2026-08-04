@@ -20,8 +20,8 @@ export const videos: VideoItem[] = [
     date: '2026.01.18',
     duration: '03:42',
     description: 'The official visualizer for IKON. Shot on a single hand-held camera through the streets of downtown LA after midnight.',
-    thumbnail: 'https://images.pexels.com/photos/18923480/pexels-photo-18923480.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1',
+    thumbnail: 'https://img.youtube.com/vi/asywxoK5l3k/hqdefault.jpg',
+    videoUrl: 'https://www.youtube.com/embed/asywxoK5l3k?rel=0&modestbranding=1',
     featured: true,
   },
   {
