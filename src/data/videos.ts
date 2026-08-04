@@ -21,19 +21,6 @@ export interface VideoItem {
 
 export const videos: VideoItem[] = [
   {
-    id: 'beta-004',
-    title: 'IKON',
-    beta: 'beta_0.04',
-    category: 'ORIGINAL MUSIC',
-    date: '2026.01.18',
-    duration: '04:04',
-    description: 'something small that reminds you why you started.',
-    quote: 'a city is just a room with no ceiling',
-    thumbnail: '/images/IMG_7210_(IKON).png',
-    featuredImage: '/images/IMG_7210_(IKON).png',
-    youtubeUrl: 'https://youtu.be/WJQwWbsxb-k?si=5PLwrWw6vA_8KNXF',
-  },
-  {
     id: 'beta-002',
     title: 'Powder',
     beta: 'beta_0.02',
@@ -60,5 +47,18 @@ export const videos: VideoItem[] = [
     thumbnail: '/images/image.png',
     featuredImage: '/images/image.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=asywxoK5l3k',
+  },
+  {
+    id: 'beta-004',
+    title: 'IKON',
+    beta: 'beta_0.04',
+    category: 'ORIGINAL MUSIC',
+    date: '2026.01.18',
+    duration: '04:04',
+    description: 'something small that reminds you why you started.',
+    quote: 'a city is just a room with no ceiling',
+    thumbnail: '/images/IMG_7210_(IKON).png',
+    featuredImage: '/images/IMG_7210_(IKON).png',
+    youtubeUrl: 'https://youtu.be/WJQwWbsxb-k?si=5PLwrWw6vA_8KNXF',
   },
 ];
