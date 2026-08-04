@@ -47,7 +47,7 @@ export function Footer() {
             </p>
           </FadeIn>
           <FadeIn delay={0.15}>
-            <h2 className="mt-8 font-nemoy-med text-3xl uppercase leading-tight tracking-wide text-bone sm:text-5xl md:text-6xl">
+            <h2 className="mt-8 font-nemoy-med text-[35px] uppercase leading-tight tracking-wide text-bone sm:text-5xl md:text-6xl">
               this is only
               <br />
               the beginning.
