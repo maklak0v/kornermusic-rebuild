@@ -119,7 +119,7 @@ export const photos: Photo[] = [
     date: '',
     location: '',
     photographer: 'shot by KORNER',
-    caption: 'winter silhouette · city at dusk',
+    caption: 'this is my tattoo',
     orientation: 'portrait',
     featured: false,
     downloadable: false,
