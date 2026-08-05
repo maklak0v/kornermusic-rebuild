@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Play, ArrowLeft, ArrowRight, Ban } from 'lucide-react';
 import { videos, type VideoItem } from '@/data/videos';
 import { SectionLabel, FadeIn } from '@/components/SectionLabel';
@@ -22,12 +22,6 @@ export function VideoSection() {
   const [canRight, setCanRight] = useState(true);
 
   const active = videos[activeIndex];
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start'],
-  });
-  const titleX = useTransform(scrollYProgress, [0, 1], ['10%', '-25%']);
 
   const onVideoEnter = () => {
     cursor?.setLabel('PLAY');
@@ -85,16 +79,8 @@ export function VideoSection() {
       className="relative overflow-hidden bg-ink-950 py-20 sm:py-28 md:py-36"
     >
       <div className="relative mx-auto max-w-[1600px] px-5 sm:px-8">
-        <SectionLabel index="05" title="TRANSMISSIONS" />
+        <SectionLabel index="05" title="FILM" />
         <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <FadeIn>
-            <motion.h2
-              style={reduced ? {} : { x: titleX }}
-              className="font-nemoy-thin text-4xl uppercase leading-none tracking-tight text-bone sm:text-6xl sm:text-8xl"
-            >
-              FILM
-            </motion.h2>
-          </FadeIn>
           <FadeIn delay={0.15}>
             <p className="max-w-xs font-nemoy-thin text-[13px] leading-relaxed text-ash sm:text-sm">
               every version is part of the story.
