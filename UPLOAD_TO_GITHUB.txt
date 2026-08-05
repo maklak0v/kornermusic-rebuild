@@ -1,11 +1,32 @@
 UPLOAD TO GITHUB (browser)
 
+IMPORTANT — READ FIRST
+The GitHub web uploader does NOT respect .gitignore. Whatever you drag into the
+browser gets committed, including hidden files. Anything committed to a public
+repository is public forever, even if you delete it afterwards.
+
+DO NOT UPLOAD THESE
+  .env                 (contains private project keys)
+  any other dotfile starting with a period, except .gitignore
+  node_modules/
+  dist/
+
+STEPS
 1. Open the empty kornermusic-rebuild repository.
 2. Choose Add file -> Upload files.
-3. Open this extracted folder and drag ALL items inside it into GitHub.
+3. Open this extracted folder.
+4. Turn on "show hidden files" in your file manager so you can SEE the dotfiles,
+   then select everything EXCEPT the items listed under DO NOT UPLOAD above.
    Do not drag the outer folder itself.
-4. Commit message: Upload clean working project
-5. Import maklak0v/kornermusic-rebuild into Bolt as a NEW project.
+5. Before committing, check the file list GitHub shows you and confirm that
+   .env is not in it. If it is, remove it from the list.
+6. Commit message: Upload clean working project
+7. Import maklak0v/kornermusic-rebuild into Bolt as a NEW project.
+
+IF YOU ALREADY UPLOADED .env
+Delete the repository and create a new one, then rotate the project keys from
+the Supabase dashboard. Removing the file in a later commit is not enough,
+because the old commit still contains it.
 
 This package excludes dist and node_modules, contains fewer than 100 files,
 and contains no file larger than 25 MB.
