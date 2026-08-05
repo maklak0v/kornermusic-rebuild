@@ -50,6 +50,7 @@ export default {
         'nemoy-thin': ['var(--font-nemoy-thin)', 'var(--font-fallback)', 'sans-serif'],
         'nemoy-med': ['var(--font-nemoy-medium)', 'var(--font-fallback)', 'sans-serif'],
         'nemoy-black': ['var(--font-nemoy-black)', 'var(--font-fallback)', 'sans-serif'],
+        nemoy: ['var(--font-nemoy-medium)', 'var(--font-fallback)', 'sans-serif'],
         fallback: ['var(--font-fallback)', 'sans-serif'],
       },
       letterSpacing: {

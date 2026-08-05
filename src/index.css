@@ -4,18 +4,20 @@
 
 /* ============================================================
    KORNER — NEMOY FONT SYSTEM
+   Each weight has its own font-family name so the browser
+   always loads the exact file — no weight-guessing.
    ============================================================ */
 :root {
-  --font-nemoy-thin: 'Nemoy';
+  --font-nemoy-thin: 'Nemoy Thin';
   --font-nemoy-medium: 'Nemoy';
-  --font-nemoy-black: 'Nemoy';
+  --font-nemoy-black: 'Nemoy Black';
   --font-fallback: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 @font-face {
-  font-family: 'Nemoy';
+  font-family: 'Nemoy Thin';
   src: url('/fonts/Nemoy-Thin.woff2') format('woff2');
-  font-weight: 100;
+  font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
@@ -29,7 +31,7 @@
 }
 
 @font-face {
-  font-family: 'Nemoy';
+  font-family: 'Nemoy Black';
   src: url('/fonts/Nemoy-Black.woff2') format('woff2');
   font-weight: 900;
   font-style: normal;
@@ -56,7 +58,7 @@ body {
   margin: 0;
   background: #050505;
   color: #e8e4dc;
-  font-family: 'Nemoy', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: var(--font-nemoy-medium), var(--font-fallback);
   overflow-x: hidden;
   width: 100%;
   max-width: 100%;
