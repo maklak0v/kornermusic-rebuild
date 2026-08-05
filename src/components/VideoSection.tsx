@@ -5,6 +5,7 @@ import { videos, type VideoItem } from '@/data/videos';
 import { SectionLabel, FadeIn } from '@/components/SectionLabel';
 import { useCursor } from '@/components/CustomCursor';
 import { useReducedMotion } from '@/hooks/useUi';
+import { MobileFilmCarousel } from '@/components/MobileFilmCarousel';
 
 function openYoutube(url: string) {
   window.open(url, '_blank', 'noopener,noreferrer');
@@ -102,8 +103,13 @@ export function VideoSection() {
         </div>
       </div>
 
-      {/* Featured video */}
-      <div className="relative mt-10 px-5 sm:mt-14 sm:px-8">
+      {/* Mobile single-slide carousel (below 768px) */}
+      <div className="mt-10 md:hidden">
+        <MobileFilmCarousel />
+      </div>
+
+      {/* Desktop featured video (768px and up) */}
+      <div className="relative mt-10 hidden px-5 sm:mt-14 sm:px-8 md:block">
         <AnimatePresence mode="wait">
           <motion.button
             key={active.id}
@@ -158,8 +164,8 @@ export function VideoSection() {
         </AnimatePresence>
       </div>
 
-      {/* Thumbnail carousel */}
-      <div className="relative mt-6 px-5 sm:mt-8 sm:px-8">
+      {/* Desktop thumbnail carousel (hidden below 768px) */}
+      <div className="relative mt-6 hidden px-5 sm:mt-8 sm:px-8 md:block">
         <div className="flex items-center gap-3 sm:gap-5">
           <CarouselArrow
             dir="left"
