@@ -174,24 +174,20 @@ export function LatestReleases() {
         </div>
       </div>
 
-      {/* 02 — LATEST TRANSMISSION */}
+      {/* 02 — MUSIC */}
       <div
         id="music"
         className="relative mx-auto max-w-[1600px] scroll-mt-24 px-5 pt-12 sm:px-8 sm:pt-20"
       >
-        <SectionLabel index="02" title="LATEST TRANSMISSION" />
+        <SectionLabel index="02" title="MUSIC" />
 
-        <FadeIn delay={0.1}>
-          <h2 className="mt-6 font-nemoy-thin text-[12vw] leading-[0.9] tracking-tight text-bone/95 sm:text-[10vw] md:text-[8vw] lg:text-[7vw]">
-            NEW MUSIC
-          </h2>
-        </FadeIn>
-
-        <FadeIn delay={0.2}>
-          <p className="mt-4 max-w-xl font-nemoy-thin text-[15px] leading-relaxed tracking-[0.04em] text-ash sm:text-[18px] sm:tracking-[0.06em] md:text-[22px]">
-            every release is another chapter.
-          </p>
-        </FadeIn>
+        <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <FadeIn delay={0.15}>
+            <p className="max-w-xl font-nemoy-thin text-[15px] leading-relaxed tracking-[0.04em] text-ash sm:text-[18px] sm:tracking-[0.06em] md:text-[22px]">
+              every release is another chapter.
+            </p>
+          </FadeIn>
+        </div>
       </div>
 
       {/* Carousel */}
